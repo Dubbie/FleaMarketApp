@@ -33,6 +33,7 @@
             this.lblList = new System.Windows.Forms.Label();
             this.lblFilter = new System.Windows.Forms.Label();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.btnNewItem = new System.Windows.Forms.Button();
             this.btnShowList = new System.Windows.Forms.Button();
             this.lblMainMarketTitle = new System.Windows.Forms.Label();
             this.panelFilters = new System.Windows.Forms.Panel();
@@ -50,7 +51,6 @@
             this.lblDetailItemDescription = new System.Windows.Forms.Label();
             this.lblDetailItemName = new System.Windows.Forms.Label();
             this.lblDetailItemId = new System.Windows.Forms.Label();
-            this.btnNewItem = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -134,6 +134,17 @@
             this.tableLayoutPanel1.SetRowSpan(this.panelSidebar, 3);
             this.panelSidebar.Size = new System.Drawing.Size(200, 411);
             this.panelSidebar.TabIndex = 1;
+            // 
+            // btnNewItem
+            // 
+            this.btnNewItem.Location = new System.Drawing.Point(10, 59);
+            this.btnNewItem.Margin = new System.Windows.Forms.Padding(10);
+            this.btnNewItem.Name = "btnNewItem";
+            this.btnNewItem.Size = new System.Drawing.Size(180, 40);
+            this.btnNewItem.TabIndex = 1;
+            this.btnNewItem.Text = "Új Tárgy";
+            this.btnNewItem.UseVisualStyleBackColor = true;
+            this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
             // 
             // btnShowList
             // 
@@ -319,17 +330,6 @@
             this.lblDetailItemId.TabIndex = 4;
             this.lblDetailItemId.Text = "Azonosító";
             // 
-            // btnNewItem
-            // 
-            this.btnNewItem.Location = new System.Drawing.Point(10, 59);
-            this.btnNewItem.Margin = new System.Windows.Forms.Padding(10);
-            this.btnNewItem.Name = "btnNewItem";
-            this.btnNewItem.Size = new System.Drawing.Size(180, 40);
-            this.btnNewItem.TabIndex = 1;
-            this.btnNewItem.Text = "Új Tárgy";
-            this.btnNewItem.UseVisualStyleBackColor = true;
-            this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
-            // 
             // MainMarketView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,6 +338,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainMarketView";
             this.Text = "Bolhapiac";
+            this.EnabledChanged += new System.EventHandler(this.MainMarketView_EnabledChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panelSidebar.ResumeLayout(false);

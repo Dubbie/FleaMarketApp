@@ -134,5 +134,13 @@ namespace FleaMarketApp
 
             BtnNewItemClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void MainMarketView_EnabledChanged(object sender, EventArgs e)
+        {
+            if (Enabled)
+            {
+                FiltersChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
     }
 }

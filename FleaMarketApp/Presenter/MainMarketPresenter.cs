@@ -1,6 +1,7 @@
 ﻿using FleaMarketApp.View;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,7 +50,7 @@ namespace FleaMarketApp.Presenter
             _View.DetailItemId = _View.SelectedItem.item_id.ToString();
             _View.DetailItemName = _View.SelectedItem.item_name;
             _View.DetailItemDescription = _View.SelectedItem.item_description;
-            _View.DetailItemPrice = $"{_View.SelectedItem.item_price.ToString()} ft";
+            _View.DetailItemPrice = $"{getFormattedPrice(_View.SelectedItem.item_price)}ft";
             _View.DetailCategory = _View.SelectedItem.category.category_name;
         }
 
@@ -71,6 +72,13 @@ namespace FleaMarketApp.Presenter
 
                 _View.Items = _Items;
             }
+        }
+
+        private string getFormattedPrice(decimal price)
+        {
+            var nfi = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
+            nfi.NumberGroupSeparator = " ";
+            return price.ToString("#,0", nfi); // "1 234 897.11"
         }
     }
 }
