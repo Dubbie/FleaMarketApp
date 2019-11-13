@@ -11,6 +11,7 @@ namespace FleaMarketApp.Presenter
     {
         private readonly IMainMarketView _View;
         private List<item> _Items;
+        private List<category> _Categories;
 
         public MainMarketPresenter(IMainMarketView view)
         {
@@ -19,19 +20,16 @@ namespace FleaMarketApp.Presenter
             using (var db = new FleaMarketContext())
             {
                 // Returns all the items we want to list
-                Console.WriteLine("-- Debug: --");
-                Console.WriteLine("--- Items:");
-
                 _Items = (from i in db.item
                               select i).ToList();
 
-                foreach (item item in _Items)
-                {
-                    Console.WriteLine($"{item.item_id} - {item.item_name} ({item.item_price}ft)");
-                }
+                // Gets all the categories
+                _Categories = (from c in db.category
+                               select c).ToList();
             }
 
             _View.Items = _Items;
+            _View.Categories = _Categories;
             _View.FiltersChanged += UpdateItems;
             _View.ItemSelected += ShowItemDetails;
         }
@@ -52,8 +50,10 @@ namespace FleaMarketApp.Presenter
                 Console.WriteLine("-- Debug: --");
                 Console.WriteLine("--- Filtered items:");
 
+                // Handles category combo box
                 _Items = (from i in db.item
                           where (i.item_id == _View.FilterItemId || _View.FilterItemId == null)
+                          && (i.category_id == _View.FilterCategory.Id || _View.FilterCategory.Id == -1)
                           && (i.item_name.Contains(_View.FilterItemName))
                           select i).ToList();
 

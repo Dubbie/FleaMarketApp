@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\category.cs" />
+    <Compile Include="Model\ComboBoxItem.cs" />
     <Compile Include="Model\FleaMarketContext.cs" />
     <Compile Include="Presenter\MainMarketPresenter.cs" />
     <Compile Include="View\IMainMarketView.cs" />
