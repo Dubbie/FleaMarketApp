@@ -36,6 +36,8 @@
             this.btnShowList = new System.Windows.Forms.Button();
             this.lblMainMarketTitle = new System.Windows.Forms.Label();
             this.panelFilters = new System.Windows.Forms.Panel();
+            this.comboCategory = new System.Windows.Forms.ComboBox();
+            this.lblCategory = new System.Windows.Forms.Label();
             this.txtFilterItemName = new System.Windows.Forms.TextBox();
             this.lblFilterItemName = new System.Windows.Forms.Label();
             this.btnFilter = new System.Windows.Forms.Button();
@@ -43,13 +45,12 @@
             this.lblFilterItemId = new System.Windows.Forms.Label();
             this.listItems = new System.Windows.Forms.ListBox();
             this.panelDetails = new System.Windows.Forms.Panel();
+            this.lblDetailCategory = new System.Windows.Forms.Label();
             this.lblDetailItemPrice = new System.Windows.Forms.Label();
             this.lblDetailItemDescription = new System.Windows.Forms.Label();
             this.lblDetailItemName = new System.Windows.Forms.Label();
             this.lblDetailItemId = new System.Windows.Forms.Label();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.comboCategory = new System.Windows.Forms.ComboBox();
-            this.lblDetailCategory = new System.Windows.Forms.Label();
+            this.btnNewItem = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -124,6 +125,7 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.White;
+            this.panelSidebar.Controls.Add(this.btnNewItem);
             this.panelSidebar.Controls.Add(this.btnShowList);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
@@ -135,9 +137,10 @@
             // 
             // btnShowList
             // 
-            this.btnShowList.Location = new System.Drawing.Point(3, 3);
+            this.btnShowList.Location = new System.Drawing.Point(10, 10);
+            this.btnShowList.Margin = new System.Windows.Forms.Padding(10);
             this.btnShowList.Name = "btnShowList";
-            this.btnShowList.Size = new System.Drawing.Size(194, 33);
+            this.btnShowList.Size = new System.Drawing.Size(180, 40);
             this.btnShowList.TabIndex = 0;
             this.btnShowList.Text = "Tárgyak";
             this.btnShowList.UseVisualStyleBackColor = true;
@@ -171,6 +174,25 @@
             this.panelFilters.Name = "panelFilters";
             this.panelFilters.Size = new System.Drawing.Size(208, 341);
             this.panelFilters.TabIndex = 3;
+            // 
+            // comboCategory
+            // 
+            this.comboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCategory.FormattingEnabled = true;
+            this.comboCategory.Location = new System.Drawing.Point(4, 98);
+            this.comboCategory.Name = "comboCategory";
+            this.comboCategory.Size = new System.Drawing.Size(200, 21);
+            this.comboCategory.TabIndex = 7;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblCategory.Location = new System.Drawing.Point(3, 81);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(61, 13);
+            this.lblCategory.TabIndex = 6;
+            this.lblCategory.Text = "Kategória";
             // 
             // txtFilterItemName
             // 
@@ -243,6 +265,16 @@
             this.panelDetails.TabIndex = 1;
             this.panelDetails.Visible = false;
             // 
+            // lblDetailCategory
+            // 
+            this.lblDetailCategory.AutoSize = true;
+            this.lblDetailCategory.Location = new System.Drawing.Point(6, 164);
+            this.lblDetailCategory.Name = "lblDetailCategory";
+            this.lblDetailCategory.Size = new System.Drawing.Size(52, 13);
+            this.lblDetailCategory.TabIndex = 8;
+            this.lblDetailCategory.Text = "Kategória";
+            this.lblDetailCategory.UseMnemonic = false;
+            // 
             // lblDetailItemPrice
             // 
             this.lblDetailItemPrice.Dock = System.Windows.Forms.DockStyle.Top;
@@ -287,34 +319,16 @@
             this.lblDetailItemId.TabIndex = 4;
             this.lblDetailItemId.Text = "Azonosító";
             // 
-            // lblCategory
+            // btnNewItem
             // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblCategory.Location = new System.Drawing.Point(3, 81);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(61, 13);
-            this.lblCategory.TabIndex = 6;
-            this.lblCategory.Text = "Kategória";
-            // 
-            // comboCategory
-            // 
-            this.comboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboCategory.FormattingEnabled = true;
-            this.comboCategory.Location = new System.Drawing.Point(4, 98);
-            this.comboCategory.Name = "comboCategory";
-            this.comboCategory.Size = new System.Drawing.Size(200, 21);
-            this.comboCategory.TabIndex = 7;
-            // 
-            // lblDetailCategory
-            // 
-            this.lblDetailCategory.AutoSize = true;
-            this.lblDetailCategory.Location = new System.Drawing.Point(6, 164);
-            this.lblDetailCategory.Name = "lblDetailCategory";
-            this.lblDetailCategory.Size = new System.Drawing.Size(52, 13);
-            this.lblDetailCategory.TabIndex = 8;
-            this.lblDetailCategory.Text = "Kategória";
-            this.lblDetailCategory.UseMnemonic = false;
+            this.btnNewItem.Location = new System.Drawing.Point(10, 59);
+            this.btnNewItem.Margin = new System.Windows.Forms.Padding(10);
+            this.btnNewItem.Name = "btnNewItem";
+            this.btnNewItem.Size = new System.Drawing.Size(180, 40);
+            this.btnNewItem.TabIndex = 1;
+            this.btnNewItem.Text = "Új Tárgy";
+            this.btnNewItem.UseVisualStyleBackColor = true;
+            this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
             // 
             // MainMarketView
             // 
@@ -359,6 +373,7 @@
         private System.Windows.Forms.ComboBox comboCategory;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblDetailCategory;
+        private System.Windows.Forms.Button btnNewItem;
     }
 }
 

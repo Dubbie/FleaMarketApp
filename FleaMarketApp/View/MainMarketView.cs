@@ -22,8 +22,9 @@ namespace FleaMarketApp
             InitializeComponent();
 
             presenter = new MainMarketPresenter(this);
-
         }
+
+        public Form Form => this;
 
         public List<item> Items
         {
@@ -73,6 +74,7 @@ namespace FleaMarketApp
 
         public event EventHandler<EventArgs> ItemSelected;
         public event EventHandler<EventArgs> FiltersChanged;
+        public event EventHandler<EventArgs> BtnNewItemClicked;
 
         // Filter stuff
         public string FilterItemName => txtFilterItemName.Text;
@@ -124,6 +126,13 @@ namespace FleaMarketApp
         {
             lblDetails.Visible = false;
             panelDetails.Visible = false;
+        }
+
+        private void btnNewItem_Click(object sender, EventArgs e)
+        {
+            this.Enabled = false;
+
+            BtnNewItemClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

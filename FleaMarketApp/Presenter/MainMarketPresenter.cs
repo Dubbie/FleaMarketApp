@@ -33,6 +33,15 @@ namespace FleaMarketApp.Presenter
             _View.Categories = _Categories;
             _View.FiltersChanged += UpdateItems;
             _View.ItemSelected += ShowItemDetails;
+            _View.BtnNewItemClicked += ShowNewItemView;
+        }
+
+        private void ShowNewItemView(object sender, EventArgs e)
+        {
+            // Disable this view, open new view
+            NewItemView newItemForm = new NewItemView();
+            newItemForm.Owner = _View.Form;
+            newItemForm.Show();
         }
 
         private void ShowItemDetails(object sender, EventArgs e)
