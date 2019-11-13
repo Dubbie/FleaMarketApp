@@ -16,12 +16,13 @@ namespace FleaMarketApp.Presenter
         public MainMarketPresenter(IMainMarketView view)
         {
             _View = view;
-            
+
             using (var db = new FleaMarketContext())
             {
                 // Returns all the items we want to list
                 _Items = (from i in db.item
-                              select i).ToList();
+                          select i).ToList();
+
 
                 // Gets all the categories
                 _Categories = (from c in db.category
@@ -48,11 +49,7 @@ namespace FleaMarketApp.Presenter
             using (var db = new FleaMarketContext())
             {
                 // Returns all the items we want to list
-                Console.WriteLine("-- Debug: --");
-                Console.WriteLine("--- Filtered items:");
-
-                // Handles category combo box
-                _Items = (from i in db.item
+                _Items = (from i in db.item.Include("category")
                           where (i.item_id == _View.FilterItemId || _View.FilterItemId == null)
                           && (i.category_id == _View.FilterCategory.Id || _View.FilterCategory.Id == -1)
                           && (i.item_name.Contains(_View.FilterItemName))
