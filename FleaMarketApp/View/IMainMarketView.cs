@@ -19,6 +19,7 @@ namespace FleaMarketApp.View
         string DetailItemName { set; }
         string DetailItemDescription { set; }
         string DetailItemPrice { set; }
+        string DetailCategory { set; }
         List<category> Categories { set; }
 
         event EventHandler<EventArgs> ItemSelected;

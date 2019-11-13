@@ -25,8 +25,10 @@ namespace FleaMarketApp
 
         }
 
-        public List<item> Items {
-            set {
+        public List<item> Items
+        {
+            set
+            {
                 listItems.Items.Clear();
 
                 foreach (item item in value)
@@ -36,28 +38,10 @@ namespace FleaMarketApp
             }
         }
 
-        public string FilterItemName => txtFilterItemName.Text;
-        public int? FilterItemId {
-            get
+        public List<category> Categories
+        {
+            set
             {
-                if (!int.TryParse(txtFilterItemId.Text, out int tmp))
-                {
-                    return null;
-                }
-                return tmp;
-            }
-        }
-        public ComboBoxItem FilterCategory => (ComboBoxItem)comboCategory.SelectedItem;
-
-
-        public item SelectedItem => (item)listItems.Items[listItems.SelectedIndex];
-
-        public string DetailItemId { set => lblDetailItemId.Text = value; }
-        public string DetailItemName { set => lblDetailItemName.Text = value; }
-        public string DetailItemDescription { set => lblDetailItemDescription.Text = value; }
-        public string DetailItemPrice { set => lblDetailItemPrice.Text = value; }
-        public List<category> Categories { 
-            set {
                 // Reset
                 comboCategory.Items.Clear();
                 comboCategory.DisplayMember = "Key";
@@ -84,18 +68,45 @@ namespace FleaMarketApp
 
                     comboCategory.Items.Add(cbi);
                 }
-            } 
+            }
         }
 
         public event EventHandler<EventArgs> ItemSelected;
         public event EventHandler<EventArgs> FiltersChanged;
 
+        // Filter stuff
+        public string FilterItemName => txtFilterItemName.Text;
+        public int? FilterItemId
+        {
+            get
+            {
+                if (!int.TryParse(txtFilterItemId.Text, out int tmp))
+                {
+                    return null;
+                }
+                return tmp;
+            }
+        }
+        public ComboBoxItem FilterCategory => (ComboBoxItem)comboCategory.SelectedItem;
+        public item SelectedItem => (item)listItems.Items[listItems.SelectedIndex];
+
+        // Details
+        public string DetailItemId { set => lblDetailItemId.Text = value; }
+        public string DetailItemName { set => lblDetailItemName.Text = value; }
+        public string DetailItemDescription { set => lblDetailItemDescription.Text = value; }
+        public string DetailItemPrice { set => lblDetailItemPrice.Text = value; }
+        public string DetailCategory { set => lblDetailCategory.Text = value; }
+
+        // Event handling
         private void listItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ItemSelected?.Invoke(this, EventArgs.Empty);
+            if (listItems.SelectedIndex != -1)
+            {
+                ItemSelected?.Invoke(this, EventArgs.Empty);
 
-            // Show item details
-            ShowDetails();
+                // Show item details
+                ShowDetails();
+            }
         }
 
         private void btnFilter_Click(object sender, EventArgs e)

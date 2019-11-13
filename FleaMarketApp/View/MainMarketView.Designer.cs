@@ -49,6 +49,7 @@
             this.lblDetailItemId = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.comboCategory = new System.Windows.Forms.ComboBox();
+            this.lblDetailCategory = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -229,6 +230,7 @@
             // 
             // panelDetails
             // 
+            this.panelDetails.Controls.Add(this.lblDetailCategory);
             this.panelDetails.Controls.Add(this.lblDetailItemPrice);
             this.panelDetails.Controls.Add(this.lblDetailItemDescription);
             this.panelDetails.Controls.Add(this.lblDetailItemName);
@@ -304,6 +306,16 @@
             this.comboCategory.Size = new System.Drawing.Size(200, 21);
             this.comboCategory.TabIndex = 7;
             // 
+            // lblDetailCategory
+            // 
+            this.lblDetailCategory.AutoSize = true;
+            this.lblDetailCategory.Location = new System.Drawing.Point(6, 164);
+            this.lblDetailCategory.Name = "lblDetailCategory";
+            this.lblDetailCategory.Size = new System.Drawing.Size(52, 13);
+            this.lblDetailCategory.TabIndex = 8;
+            this.lblDetailCategory.Text = "Kategória";
+            this.lblDetailCategory.UseMnemonic = false;
+            // 
             // MainMarketView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,6 +330,7 @@
             this.panelFilters.ResumeLayout(false);
             this.panelFilters.PerformLayout();
             this.panelDetails.ResumeLayout(false);
+            this.panelDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -345,6 +358,7 @@
         private System.Windows.Forms.ListBox listItems;
         private System.Windows.Forms.ComboBox comboCategory;
         private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.Label lblDetailCategory;
     }
 }
 

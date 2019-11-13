@@ -40,6 +40,7 @@ namespace FleaMarketApp.Presenter
             _View.DetailItemName = _View.SelectedItem.item_name;
             _View.DetailItemDescription = _View.SelectedItem.item_description;
             _View.DetailItemPrice = $"{_View.SelectedItem.item_price.ToString()} ft";
+            _View.DetailCategory = _View.SelectedItem.category.category_name;
         }
 
         private void UpdateItems(object sender, EventArgs e)
