@@ -26,7 +26,16 @@ namespace FleaMarketApp.View
         public decimal ItemId { get ; set; }
         public string ItemName { get => txtItemName.Text; set => txtItemName.Text = value; }
         public string Description { get => txtItemDescription.Text; set => txtItemDescription.Text = value; }
-        public decimal Price { get => decimal.Parse(txtPrice.Text); set => txtPrice.Text = value.ToString(); }
+        public decimal? Price {
+            get {
+
+                if (decimal.TryParse(txtPrice.Text, out decimal price))
+                {
+                    return price;
+                }
+
+                return null;
+            } set => txtPrice.Text = value.ToString(); }
         public decimal CategoryId {
             get
             {
@@ -117,17 +126,41 @@ namespace FleaMarketApp.View
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            UpdateItem?.Invoke(this, EventArgs.Empty);
-
-            if (ItemUpdated)
+            // Validálást végezzünk el
+            if (ValidateInputs())
             {
-                Close();
+                UpdateItem?.Invoke(this, EventArgs.Empty);
+
+                if (ItemUpdated)
+                {
+                    Close();
+                }
             }
         }
 
         private void EditItemView_FormClosed(object sender, FormClosedEventArgs e)
         {
             Owner.Enabled = true;
+        }
+
+        private bool ValidateInputs()
+        {
+            bool error = false;
+
+            // Üres név esetén off
+            if (string.IsNullOrEmpty(txtItemName.Text))
+            {
+                MessageBox.Show("A tárgy neve nem lehet üres!", "Hiba a tárgy frissítésekor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = true;
+            }
+            // Nem jó az ár
+            if (!string.IsNullOrEmpty(txtPrice.Text) && !decimal.TryParse(txtPrice.Text, out _))
+            {
+                MessageBox.Show("A ára nem helyesen lett megadva!", "Hiba a tárgy frissítésekor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = true;
+            }
+
+            return !error;
         }
     }
 }

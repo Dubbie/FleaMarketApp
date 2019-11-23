@@ -11,7 +11,7 @@ namespace FleaMarketApp.View
         decimal ItemId { get; set; }
         string ItemName { get; set; }
         string Description { get; set; }
-        decimal Price { get; set; }
+        decimal? Price { get; set; }
         decimal CategoryId { get; set; }
         decimal StatusId { get; set; }
         bool ItemUpdated { get; set; }

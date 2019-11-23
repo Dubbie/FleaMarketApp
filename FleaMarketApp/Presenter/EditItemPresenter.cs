@@ -41,11 +41,16 @@ namespace FleaMarketApp.Presenter
 
                 foundItem.item_name = _View.ItemName;
                 foundItem.item_description = _View.Description;
-                foundItem.item_price = _View.Price;
                 foundItem.category_id = _View.CategoryId;
                 foundItem.status_id = _View.StatusId;
                 foundItem.modified_at = DateTime.Now;
-                foundItem.item_price = _View.Price;
+
+                if (_View.Price != null)
+                {
+                    foundItem.item_price = (decimal)_View.Price;
+                }
+
+                Console.WriteLine(foundItem.item_price);
 
                 db.SaveChanges();
 

@@ -21,7 +21,7 @@ CREATE TABLE item
         item_id    NUMERIC PRIMARY KEY IDENTITY(1,1),
         item_name  VARCHAR(255) NOT NULL,
         item_description VARCHAR(255),
-        item_price DECIMAL(10,2) NOT NULL,
+        item_price DECIMAL(10,2),
         status_id   NUMERIC NOT NULL REFERENCES status(status_id),
         category_id NUMERIC NOT NULL REFERENCES category(category_id),
         created_at DATETIME NOT NULL,
@@ -58,7 +58,8 @@ SET IDENTITY_INSERT item ON
 INSERT INTO item (item_id, item_name, item_description, item_price, status_id, category_id, created_at, modified_at)
     VALUES
         (1, 'MVMT Karóra', 'Teljesen fekete, bőr szíjjal, piros mutatóval, alig használt', '16990.00', 2, 3, '2019-10-18 22:35:06', '2019-10-18 22:35:06'),
-        (2, 'Baywatch DVD', ';)', '5000.00', 3, 4, '2019-11-03 09:14:06', '2019-11-03 09:14:06');
+        (2, 'Gyulai kolbász', 'Enyhén csípős, pálinkáért felárat fizetek', null, 1, 3, '2019-10-23 23:40:06', '2019-10-23 23:40:06'),
+        (3, 'Baywatch DVD', ';)', '5000.00', 3, 4, '2019-11-03 09:14:06', '2019-11-03 09:14:06');
 SET IDENTITY_INSERT item OFF
 
 SET IDENTITY_INSERT item_order ON
