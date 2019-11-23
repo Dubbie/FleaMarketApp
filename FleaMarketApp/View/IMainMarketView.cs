@@ -19,10 +19,12 @@ namespace FleaMarketApp.View
 
         string DetailItemId { set; }
         string DetailItemName { set; }
+        string DetailItemStatus { set; }
         string DetailItemDescription { set; }
         string DetailItemPrice { set; }
         string DetailCategory { set; }
         List<category> Categories { set; }
+        List<status> Statuses { set; }
 
         event EventHandler<EventArgs> ItemSelected;
         event EventHandler<EventArgs> FiltersChanged;

@@ -72,6 +72,39 @@ namespace FleaMarketApp
             }
         }
 
+        public List<status> Statuses
+        {
+            set
+            {
+                // Reset
+                comboStatus.Items.Clear();
+                comboStatus.DisplayMember = "Key";
+                comboStatus.ValueMember = "Value";
+
+                // Initialize it with whatever
+                ComboBoxItem whateverItem = new ComboBoxItem
+                {
+                    Id = -1,
+                    Text = "Mindegy"
+                };
+
+                comboStatus.Items.Add(whateverItem);
+                comboStatus.SelectedItem = whateverItem;
+
+                foreach (status status in value)
+                {
+                    // Create the ComboBoxItem, the output comes from the ToString return value
+                    ComboBoxItem cbi = new ComboBoxItem
+                    {
+                        Id = status.status_id,
+                        Text = status.status_name
+                    };
+
+                    comboStatus.Items.Add(cbi);
+                }
+            }
+        }
+
         public event EventHandler<EventArgs> ItemSelected;
         public event EventHandler<EventArgs> FiltersChanged;
         public event EventHandler<EventArgs> BtnNewItemClicked;
@@ -91,10 +124,10 @@ namespace FleaMarketApp
         }
         public ComboBoxItem FilterCategory => (ComboBoxItem)comboCategory.SelectedItem;
         public item SelectedItem => (item)listItems.Items[listItems.SelectedIndex];
-
         // Details
         public string DetailItemId { set => lblDetailItemId.Text = value; }
         public string DetailItemName { set => lblDetailItemName.Text = value; }
+        public string DetailItemStatus { set => lblDetailItemStatus.Text = value; }
         public string DetailItemDescription { set => lblDetailItemDescription.Text = value; }
         public string DetailItemPrice { set => lblDetailItemPrice.Text = value; }
         public string DetailCategory { set => lblDetailCategory.Text = value; }

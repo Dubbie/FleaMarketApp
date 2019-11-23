@@ -37,6 +37,8 @@
             this.btnShowList = new System.Windows.Forms.Button();
             this.lblMainMarketTitle = new System.Windows.Forms.Label();
             this.panelFilters = new System.Windows.Forms.Panel();
+            this.comboStatus = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.comboCategory = new System.Windows.Forms.ComboBox();
             this.lblCategory = new System.Windows.Forms.Label();
             this.txtFilterItemName = new System.Windows.Forms.TextBox();
@@ -50,11 +52,15 @@
             this.lblDetailItemPrice = new System.Windows.Forms.Label();
             this.lblDetailItemDescription = new System.Windows.Forms.Label();
             this.lblDetailItemName = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDetailItemStatus = new System.Windows.Forms.Label();
             this.lblDetailItemId = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
             this.panelDetails.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -172,6 +178,8 @@
             // 
             // panelFilters
             // 
+            this.panelFilters.Controls.Add(this.comboStatus);
+            this.panelFilters.Controls.Add(this.lblStatus);
             this.panelFilters.Controls.Add(this.comboCategory);
             this.panelFilters.Controls.Add(this.lblCategory);
             this.panelFilters.Controls.Add(this.txtFilterItemName);
@@ -185,6 +193,25 @@
             this.panelFilters.Name = "panelFilters";
             this.panelFilters.Size = new System.Drawing.Size(208, 341);
             this.panelFilters.TabIndex = 3;
+            // 
+            // comboStatus
+            // 
+            this.comboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboStatus.FormattingEnabled = true;
+            this.comboStatus.Location = new System.Drawing.Point(4, 137);
+            this.comboStatus.Name = "comboStatus";
+            this.comboStatus.Size = new System.Drawing.Size(200, 21);
+            this.comboStatus.TabIndex = 9;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblStatus.Location = new System.Drawing.Point(3, 122);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(49, 13);
+            this.lblStatus.TabIndex = 8;
+            this.lblStatus.Text = "Státusz";
             // 
             // comboCategory
             // 
@@ -263,11 +290,12 @@
             // 
             // panelDetails
             // 
+            this.panelDetails.Controls.Add(this.btnEdit);
             this.panelDetails.Controls.Add(this.lblDetailCategory);
             this.panelDetails.Controls.Add(this.lblDetailItemPrice);
             this.panelDetails.Controls.Add(this.lblDetailItemDescription);
             this.panelDetails.Controls.Add(this.lblDetailItemName);
-            this.panelDetails.Controls.Add(this.lblDetailItemId);
+            this.panelDetails.Controls.Add(this.panel1);
             this.panelDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDetails.Location = new System.Drawing.Point(666, 60);
             this.panelDetails.Margin = new System.Windows.Forms.Padding(10);
@@ -278,22 +306,20 @@
             // 
             // lblDetailCategory
             // 
-            this.lblDetailCategory.AutoSize = true;
-            this.lblDetailCategory.Location = new System.Drawing.Point(6, 164);
+            this.lblDetailCategory.Location = new System.Drawing.Point(6, 167);
             this.lblDetailCategory.Name = "lblDetailCategory";
-            this.lblDetailCategory.Size = new System.Drawing.Size(52, 13);
+            this.lblDetailCategory.Size = new System.Drawing.Size(199, 17);
             this.lblDetailCategory.TabIndex = 8;
             this.lblDetailCategory.Text = "Kategória";
             this.lblDetailCategory.UseMnemonic = false;
             // 
             // lblDetailItemPrice
             // 
-            this.lblDetailItemPrice.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDetailItemPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDetailItemPrice.Location = new System.Drawing.Point(0, 130);
+            this.lblDetailItemPrice.Location = new System.Drawing.Point(3, 137);
             this.lblDetailItemPrice.Margin = new System.Windows.Forms.Padding(0);
             this.lblDetailItemPrice.Name = "lblDetailItemPrice";
-            this.lblDetailItemPrice.Size = new System.Drawing.Size(208, 30);
+            this.lblDetailItemPrice.Size = new System.Drawing.Size(202, 30);
             this.lblDetailItemPrice.TabIndex = 7;
             this.lblDetailItemPrice.Text = "Ár";
             // 
@@ -301,7 +327,7 @@
             // 
             this.lblDetailItemDescription.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDetailItemDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDetailItemDescription.Location = new System.Drawing.Point(0, 45);
+            this.lblDetailItemDescription.Location = new System.Drawing.Point(0, 52);
             this.lblDetailItemDescription.Margin = new System.Windows.Forms.Padding(0);
             this.lblDetailItemDescription.Name = "lblDetailItemDescription";
             this.lblDetailItemDescription.Size = new System.Drawing.Size(208, 85);
@@ -312,23 +338,54 @@
             // 
             this.lblDetailItemName.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDetailItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDetailItemName.Location = new System.Drawing.Point(0, 16);
+            this.lblDetailItemName.Location = new System.Drawing.Point(0, 23);
             this.lblDetailItemName.Margin = new System.Windows.Forms.Padding(0);
             this.lblDetailItemName.Name = "lblDetailItemName";
             this.lblDetailItemName.Size = new System.Drawing.Size(208, 29);
             this.lblDetailItemName.TabIndex = 5;
             this.lblDetailItemName.Text = "Termék megnevezés";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblDetailItemStatus);
+            this.panel1.Controls.Add(this.lblDetailItemId);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(208, 23);
+            this.panel1.TabIndex = 4;
+            // 
+            // lblDetailItemStatus
+            // 
+            this.lblDetailItemStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDetailItemStatus.Location = new System.Drawing.Point(69, 0);
+            this.lblDetailItemStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.lblDetailItemStatus.Name = "lblDetailItemStatus";
+            this.lblDetailItemStatus.Size = new System.Drawing.Size(139, 16);
+            this.lblDetailItemStatus.TabIndex = 5;
+            this.lblDetailItemStatus.Text = "Státusz";
+            this.lblDetailItemStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // lblDetailItemId
             // 
-            this.lblDetailItemId.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDetailItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDetailItemId.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblDetailItemId.Location = new System.Drawing.Point(0, 0);
             this.lblDetailItemId.Margin = new System.Windows.Forms.Padding(0);
             this.lblDetailItemId.Name = "lblDetailItemId";
-            this.lblDetailItemId.Size = new System.Drawing.Size(208, 16);
+            this.lblDetailItemId.Size = new System.Drawing.Size(69, 16);
             this.lblDetailItemId.TabIndex = 4;
             this.lblDetailItemId.Text = "Azonosító";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(0, 318);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 9;
+            this.btnEdit.Text = "Szerkesztés";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // MainMarketView
             // 
@@ -345,7 +402,7 @@
             this.panelFilters.ResumeLayout(false);
             this.panelFilters.PerformLayout();
             this.panelDetails.ResumeLayout(false);
-            this.panelDetails.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -375,6 +432,11 @@
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblDetailCategory;
         private System.Windows.Forms.Button btnNewItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblDetailItemStatus;
+        private System.Windows.Forms.ComboBox comboStatus;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
 

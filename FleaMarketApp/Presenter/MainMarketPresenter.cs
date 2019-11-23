@@ -13,6 +13,7 @@ namespace FleaMarketApp.Presenter
         private readonly IMainMarketView _View;
         private List<item> _Items;
         private List<category> _Categories;
+        private List<status> _Statuses;
 
         public MainMarketPresenter(IMainMarketView view)
         {
@@ -28,10 +29,15 @@ namespace FleaMarketApp.Presenter
                 // Gets all the categories
                 _Categories = (from c in db.category
                                select c).ToList();
+
+                // Gets all the statuses
+                _Statuses = (from s in db.status
+                               select s).ToList();
             }
 
             _View.Items = _Items;
             _View.Categories = _Categories;
+            _View.Statuses = _Statuses;
             _View.FiltersChanged += UpdateItems;
             _View.ItemSelected += ShowItemDetails;
             _View.BtnNewItemClicked += ShowNewItemView;
@@ -49,6 +55,7 @@ namespace FleaMarketApp.Presenter
         {
             _View.DetailItemId = _View.SelectedItem.item_id.ToString();
             _View.DetailItemName = _View.SelectedItem.item_name;
+            _View.DetailItemStatus = _View.SelectedItem.status.status_name;
             _View.DetailItemDescription = _View.SelectedItem.item_description;
             _View.DetailItemPrice = $"{getFormattedPrice(_View.SelectedItem.item_price)}ft";
             _View.DetailCategory = _View.SelectedItem.category.category_name;
@@ -59,7 +66,7 @@ namespace FleaMarketApp.Presenter
             using (var db = new FleaMarketContext())
             {
                 // Returns all the items we want to list
-                _Items = (from i in db.item.Include("category")
+                _Items = (from i in db.item.Include("category").Include("status")
                           where (i.item_id == _View.FilterItemId || _View.FilterItemId == null)
                           && (i.category_id == _View.FilterCategory.Id || _View.FilterCategory.Id == -1)
                           && (i.item_name.Contains(_View.FilterItemName))
