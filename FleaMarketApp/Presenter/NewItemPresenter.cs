@@ -16,7 +16,7 @@ namespace FleaMarketApp.Presenter
         {
             _View = view;
 
-            // Load categories into view
+            // Betöltjük a kategóriákat a nézetbe
             using (var db = new FleaMarketContext())
             {
                 _Categories = (from c in db.category
@@ -29,19 +29,24 @@ namespace FleaMarketApp.Presenter
 
         public void SaveNewItem(object sender, EventArgs e)
         {
-            // Creates the new item object
+            // Státusz eldöntés
+            // - 1. (Új) ha nincs ára
+            // - 2. (Aktív) ha meg van adva ár
+            int checked_status = _View.Price != null ? 2 : 1;
+
+            // Létrehozunk egy új tárgy objektumot
             item newItem = new item
             {
                 item_name = _View.ItemName,
                 item_description = _View.Description,
                 item_price = _View.Price,
                 category_id = _View.CategoryId,
-                status_id = 2, // Aktív status
+                status_id = checked_status, // Az ellenőrzött státusz megadása
                 created_at = DateTime.Now,
                 modified_at = DateTime.Now,
             };
 
-            // Adds to database
+            // Adatbázisba elmentés
             using (var db = new FleaMarketContext())
             {
                 db.item.Add(newItem);

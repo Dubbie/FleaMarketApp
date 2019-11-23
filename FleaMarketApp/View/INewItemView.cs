@@ -10,7 +10,7 @@ namespace FleaMarketApp.View
     {
         string ItemName { get; }
         string Description { get; }
-        decimal Price { get; }
+        decimal? Price { get; }
         decimal CategoryId { get; }
         bool ItemSaved { get; set; }
 

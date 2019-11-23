@@ -17,7 +17,7 @@ namespace FleaMarketApp.Presenter
         {
             _View = view;
 
-            // Load categories into view
+            // Betöltjük a kategóriákat és a státuszokat a nézetbe
             using (var db = new FleaMarketContext())
             {
                 _Categories = (from c in db.category
@@ -44,11 +44,7 @@ namespace FleaMarketApp.Presenter
                 foundItem.category_id = _View.CategoryId;
                 foundItem.status_id = _View.StatusId;
                 foundItem.modified_at = DateTime.Now;
-
-                if (_View.Price != null)
-                {
-                    foundItem.item_price = (decimal)_View.Price;
-                }
+                foundItem.item_price = _View.Price;
 
                 db.SaveChanges();
 

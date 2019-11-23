@@ -75,7 +75,7 @@ namespace FleaMarketApp.View
         public bool ItemUpdated { get; set; }
         public List<category> Categories { 
             set {
-                // Add default to category
+                // Hozzáadjuk az alapértelmezettet a kategóriákhoz
                 comboCategory.Items.Clear();
                 ComboBoxItem defaultCbi = new ComboBoxItem
                 {
@@ -99,7 +99,7 @@ namespace FleaMarketApp.View
         }
         public List<status> Statuses {
             set {
-                // Add default to status
+                // Hozzáadjuk az alapértelmezettet a státuszokhoz
                 comboStatus.Items.Clear();
                 ComboBoxItem defaultCbi = new ComboBoxItem
                 {

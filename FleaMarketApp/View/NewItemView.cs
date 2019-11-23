@@ -26,7 +26,16 @@ namespace FleaMarketApp.View
         public bool ItemSaved { get; set; }
         public string ItemName { get => txtItemName.Text; }
         public string Description { get => txtItemDescription.Text; }
-        public decimal Price { get => decimal.Parse(txtPrice.Text); }
+        public decimal? Price { 
+            get {
+                if (string.IsNullOrEmpty(txtPrice.Text))
+                {
+                    return null;
+                }
+
+                return decimal.Parse(txtPrice.Text);
+            } 
+        }
         public decimal CategoryId
         {
             get
