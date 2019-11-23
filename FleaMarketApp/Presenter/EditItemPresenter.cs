@@ -50,8 +50,6 @@ namespace FleaMarketApp.Presenter
                     foundItem.item_price = (decimal)_View.Price;
                 }
 
-                Console.WriteLine(foundItem.item_price);
-
                 db.SaveChanges();
 
                 _View.ItemUpdated = true;

@@ -16,6 +16,7 @@ namespace FleaMarketApp
 
         [Key]
         [Column(TypeName = "numeric")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal status_id { get; set; }
 
         [StringLength(40)]

@@ -19,9 +19,6 @@ namespace FleaMarketApp
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // I might have done an oopsie
-            Database.SetInitializer<FleaMarketContext>(null);
-
             modelBuilder.Entity<category>()
                 .Property(e => e.category_id)
                 .HasPrecision(18, 0);

@@ -17,6 +17,7 @@ namespace FleaMarketApp
 
         [Key]
         [Column(TypeName = "numeric")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal category_id { get; set; }
 
         [StringLength(40)]
@@ -24,10 +25,5 @@ namespace FleaMarketApp
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<item> item { get; set; }
-
-        public override string ToString()
-        {
-            return $"{category_name}";
-        }
     }
 }

@@ -59,11 +59,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\category.cs" />
-    <Compile Include="Model\ComboBoxItem.cs" />
     <Compile Include="Model\FleaMarketContext.cs" />
+    <Compile Include="Model\item.cs" />
+    <Compile Include="Model\item_order.cs" />
+    <Compile Include="Model\ComboBoxItem.cs" />
     <Compile Include="Presenter\EditItemPresenter.cs" />
     <Compile Include="Presenter\MainMarketPresenter.cs" />
     <Compile Include="Presenter\NewItemPresenter.cs" />
+    <Compile Include="Model\status.cs" />
     <Compile Include="View\EditItemView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,11 +82,8 @@
     <Compile Include="View\MainMarketView.Designer.cs">
       <DependentUpon>MainMarketView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\item.cs" />
-    <Compile Include="Model\item_order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\status.cs" />
     <Compile Include="View\NewItemView.cs">
       <SubType>Form</SubType>
     </Compile>

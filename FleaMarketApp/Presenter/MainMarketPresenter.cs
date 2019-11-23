@@ -77,7 +77,7 @@ namespace FleaMarketApp.Presenter
             _View.DetailItemName = _View.SelectedItem.item_name;
             _View.DetailItemStatus = _View.SelectedItem.status.status_name;
             _View.DetailItemDescription = _View.SelectedItem.item_description;
-            _View.DetailItemPrice = $"{getFormattedPrice(_View.SelectedItem.item_price)}ft";
+            _View.DetailItemPrice = _View.SelectedItem.GetFormattedPrice();
             _View.DetailCategory = _View.SelectedItem.category.category_name;
         }
 
@@ -95,13 +95,6 @@ namespace FleaMarketApp.Presenter
 
                 _View.Items = _Items;
             }
-        }
-
-        private string getFormattedPrice(decimal price)
-        {
-            var nfi = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
-            nfi.NumberGroupSeparator = " ";
-            return price.ToString("#,0", nfi); // "1 234 897.11"
         }
     }
 }

@@ -5,6 +5,7 @@ namespace FleaMarketApp
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Globalization;
 
     [Table("item")]
     public partial class item
@@ -16,6 +17,7 @@ namespace FleaMarketApp
         }
 
         [Key]
+        [Column(TypeName = "numeric")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal item_id { get; set; }
 
@@ -26,7 +28,7 @@ namespace FleaMarketApp
         [StringLength(255)]
         public string item_description { get; set; }
 
-        public decimal item_price { get; set; }
+        public decimal? item_price { get; set; }
 
         [Column(TypeName = "numeric")]
         public decimal status_id { get; set; }
@@ -47,7 +49,25 @@ namespace FleaMarketApp
 
         public override string ToString()
         {
-            return $"{item_id} - {item_name}";
+            string price_label = GetFormattedPrice();
+            return $"{item_id} - {item_name} ({price_label})";
+        }
+
+        public string GetFormattedPrice()
+        {
+            var nfi = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
+            nfi.NumberGroupSeparator = " ";
+
+
+            if (item_price != null)
+            {
+                decimal decimalPrice = (decimal)item_price;
+                return decimalPrice.ToString("#,0", nfi) + " Ft"; // "1 234 897.11"
+            }
+            else
+            {
+                return "Ár nélkül";
+            }
         }
     }
 }

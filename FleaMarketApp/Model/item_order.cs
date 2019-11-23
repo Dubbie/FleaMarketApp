@@ -10,6 +10,7 @@ namespace FleaMarketApp
     {
         [Key]
         [Column(TypeName = "numeric")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal order_id { get; set; }
 
         [Column(TypeName = "numeric")]
