@@ -61,8 +61,16 @@
     <Compile Include="Model\category.cs" />
     <Compile Include="Model\ComboBoxItem.cs" />
     <Compile Include="Model\FleaMarketContext.cs" />
+    <Compile Include="Presenter\EditItemPresenter.cs" />
     <Compile Include="Presenter\MainMarketPresenter.cs" />
     <Compile Include="Presenter\NewItemPresenter.cs" />
+    <Compile Include="View\EditItemView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditItemView.Designer.cs">
+      <DependentUpon>EditItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\IEditItemView.cs" />
     <Compile Include="View\IMainMarketView.cs" />
     <Compile Include="View\INewItemView.cs" />
     <Compile Include="View\MainMarketView.cs">
@@ -91,6 +99,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\EditItemView.resx">
+      <DependentUpon>EditItemView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainMarketView.resx">
       <DependentUpon>MainMarketView.cs</DependentUpon>
     </EmbeddedResource>

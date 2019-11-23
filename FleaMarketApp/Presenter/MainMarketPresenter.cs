@@ -41,6 +41,7 @@ namespace FleaMarketApp.Presenter
             _View.FiltersChanged += UpdateItems;
             _View.ItemSelected += ShowItemDetails;
             _View.BtnNewItemClicked += ShowNewItemView;
+            _View.BtnEditItemClicked += ShowEditItemView;
         }
 
         private void ShowNewItemView(object sender, EventArgs e)
@@ -49,6 +50,25 @@ namespace FleaMarketApp.Presenter
             NewItemView newItemForm = new NewItemView();
             newItemForm.Owner = _View.Form;
             newItemForm.Show();
+        }
+
+        private void ShowEditItemView(object sender, EventArgs e)
+        {
+            // Disable this view, open new view
+            EditItemView editItemView = new EditItemView();
+            editItemView.Owner = _View.Form;
+            editItemView.ItemId = _View.SelectedItem.item_id;
+            editItemView.ItemName = _View.SelectedItem.item_name;
+            editItemView.Description = _View.SelectedItem.item_description;
+            editItemView.Price = _View.SelectedItem.item_price;
+
+            // FONTOS: Adjuk meg először a kategóriákat és a státuszokat
+            editItemView.Categories = _Categories;
+            editItemView.Statuses = _Statuses;
+            // Most már be lehet állítani azonosítókat is
+            editItemView.CategoryId = _View.SelectedItem.category.category_id;
+            editItemView.StatusId = _View.SelectedItem.status.status_id;
+            editItemView.Show();
         }
 
         private void ShowItemDetails(object sender, EventArgs e)
@@ -69,13 +89,9 @@ namespace FleaMarketApp.Presenter
                 _Items = (from i in db.item.Include("category").Include("status")
                           where (i.item_id == _View.FilterItemId || _View.FilterItemId == null)
                           && (i.category_id == _View.FilterCategory.Id || _View.FilterCategory.Id == -1)
+                          && (i.status_id == _View.FilterStatus.Id || _View.FilterStatus.Id == -1)
                           && (i.item_name.Contains(_View.FilterItemName))
                           select i).ToList();
-
-                foreach (item item in _Items)
-                {
-                    Console.WriteLine($"{item.item_id} - {item.item_name} ({item.item_price}ft)");
-                }
 
                 _View.Items = _Items;
             }

@@ -16,6 +16,7 @@ namespace FleaMarketApp.View
         int? FilterItemId { get; }
         string FilterItemName { get; }
         ComboBoxItem FilterCategory { get; }
+        ComboBoxItem FilterStatus { get; }
 
         string DetailItemId { set; }
         string DetailItemName { set; }
@@ -29,5 +30,6 @@ namespace FleaMarketApp.View
         event EventHandler<EventArgs> ItemSelected;
         event EventHandler<EventArgs> FiltersChanged;
         event EventHandler<EventArgs> BtnNewItemClicked;
+        event EventHandler<EventArgs> BtnEditItemClicked;
     }
 }

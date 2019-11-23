@@ -144,7 +144,7 @@
             this.Controls.Add(this.txtItemName);
             this.Controls.Add(this.lblItemName);
             this.Name = "NewItemView";
-            this.Text = "NewItemView";
+            this.Text = "Új tárgy";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NewItemView_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

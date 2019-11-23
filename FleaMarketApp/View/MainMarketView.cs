@@ -16,6 +16,7 @@ namespace FleaMarketApp
     public partial class MainMarketView : Form, IMainMarketView
     {
         private readonly MainMarketPresenter presenter;
+        private int? lastSelectedItemId;
 
         public MainMarketView()
         {
@@ -108,6 +109,7 @@ namespace FleaMarketApp
         public event EventHandler<EventArgs> ItemSelected;
         public event EventHandler<EventArgs> FiltersChanged;
         public event EventHandler<EventArgs> BtnNewItemClicked;
+        public event EventHandler<EventArgs> BtnEditItemClicked;
 
         // Filter stuff
         public string FilterItemName => txtFilterItemName.Text;
@@ -123,6 +125,7 @@ namespace FleaMarketApp
             }
         }
         public ComboBoxItem FilterCategory => (ComboBoxItem)comboCategory.SelectedItem;
+        public ComboBoxItem FilterStatus => (ComboBoxItem)comboStatus.SelectedItem;
         public item SelectedItem => (item)listItems.Items[listItems.SelectedIndex];
         // Details
         public string DetailItemId { set => lblDetailItemId.Text = value; }
@@ -137,6 +140,7 @@ namespace FleaMarketApp
         {
             if (listItems.SelectedIndex != -1)
             {
+                lastSelectedItemId = listItems.SelectedIndex;
                 ItemSelected?.Invoke(this, EventArgs.Empty);
 
                 // Show item details
@@ -173,7 +177,19 @@ namespace FleaMarketApp
             if (Enabled)
             {
                 FiltersChanged?.Invoke(this, EventArgs.Empty);
+
+                if (lastSelectedItemId != null)
+                {
+                    listItems.SelectedIndex = (int)lastSelectedItemId;
+                }
             }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            this.Enabled = false;
+
+            BtnEditItemClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

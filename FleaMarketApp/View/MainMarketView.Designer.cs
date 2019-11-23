@@ -48,6 +48,7 @@
             this.lblFilterItemId = new System.Windows.Forms.Label();
             this.listItems = new System.Windows.Forms.ListBox();
             this.panelDetails = new System.Windows.Forms.Panel();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.lblDetailCategory = new System.Windows.Forms.Label();
             this.lblDetailItemPrice = new System.Windows.Forms.Label();
             this.lblDetailItemDescription = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblDetailItemStatus = new System.Windows.Forms.Label();
             this.lblDetailItemId = new System.Windows.Forms.Label();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -304,6 +304,17 @@
             this.panelDetails.TabIndex = 1;
             this.panelDetails.Visible = false;
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(0, 318);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 9;
+            this.btnEdit.Text = "Szerkesztés";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // lblDetailCategory
             // 
             this.lblDetailCategory.Location = new System.Drawing.Point(6, 167);
@@ -376,16 +387,6 @@
             this.lblDetailItemId.Size = new System.Drawing.Size(69, 16);
             this.lblDetailItemId.TabIndex = 4;
             this.lblDetailItemId.Text = "Azonosító";
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(0, 318);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 9;
-            this.btnEdit.Text = "Szerkesztés";
-            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // MainMarketView
             // 
