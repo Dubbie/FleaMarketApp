@@ -126,6 +126,35 @@ namespace FleaMarketApp
         }
         public ComboBoxItem FilterCategory => (ComboBoxItem)comboCategory.SelectedItem;
         public ComboBoxItem FilterStatus => (ComboBoxItem)comboStatus.SelectedItem;
+        public decimal? FilterPriceMin
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(txtFilterPriceMin.Text))
+                {
+                    return null;
+                }
+                else
+                {
+                    return decimal.Parse(txtFilterPriceMin.Text);
+                }
+            }
+        }
+        public decimal? FilterPriceMax
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(txtFilterPriceMax.Text))
+                {
+                    return null;
+                }
+                else
+                {
+                    return decimal.Parse(txtFilterPriceMax.Text);
+                }
+            }
+        }
+
         public item SelectedItem => (item)listItems.Items[listItems.SelectedIndex];
         // Details
         public string DetailItemId { set => lblDetailItemId.Text = value; }
@@ -134,6 +163,8 @@ namespace FleaMarketApp
         public string DetailItemDescription { set => lblDetailItemDescription.Text = value; }
         public string DetailItemPrice { set => lblDetailItemPrice.Text = value; }
         public string DetailCategory { set => lblDetailCategory.Text = value; }
+        public string DetailCreatedAt { set => lblDetailCreatedAt.Text = value; }
+        public string DetailModifiedAt { set => lblDetailModifiedAt.Text = value; }
 
         // Event handling
         private void listItems_SelectedIndexChanged(object sender, EventArgs e)

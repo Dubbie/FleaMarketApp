@@ -17,6 +17,8 @@ namespace FleaMarketApp.View
         string FilterItemName { get; }
         ComboBoxItem FilterCategory { get; }
         ComboBoxItem FilterStatus { get; }
+        decimal? FilterPriceMin { get; }
+        decimal? FilterPriceMax { get; }
 
         string DetailItemId { set; }
         string DetailItemName { set; }
@@ -24,6 +26,8 @@ namespace FleaMarketApp.View
         string DetailItemDescription { set; }
         string DetailItemPrice { set; }
         string DetailCategory { set; }
+        string DetailCreatedAt { set; }
+        string DetailModifiedAt { set; }
         List<category> Categories { set; }
         List<status> Statuses { set; }
 

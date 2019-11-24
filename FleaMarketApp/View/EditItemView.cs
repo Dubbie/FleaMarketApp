@@ -75,16 +75,6 @@ namespace FleaMarketApp.View
         public bool ItemUpdated { get; set; }
         public List<category> Categories { 
             set {
-                // Hozzáadjuk az alapértelmezettet a kategóriákhoz
-                comboCategory.Items.Clear();
-                ComboBoxItem defaultCbi = new ComboBoxItem
-                {
-                    Id = -1,
-                    Text = "Válasszon kategóriát..."
-                };
-                comboCategory.Items.Add(defaultCbi);
-                comboCategory.SelectedItem = defaultCbi;
-
                 foreach (category category in value)
                 {
                     ComboBoxItem cbi = new ComboBoxItem
@@ -99,16 +89,6 @@ namespace FleaMarketApp.View
         }
         public List<status> Statuses {
             set {
-                // Hozzáadjuk az alapértelmezettet a státuszokhoz
-                comboStatus.Items.Clear();
-                ComboBoxItem defaultCbi = new ComboBoxItem
-                {
-                    Id = -1,
-                    Text = "Válasszon státuszt..."
-                };
-                comboStatus.Items.Add(defaultCbi);
-                comboStatus.SelectedItem = defaultCbi;
-
                 foreach (status status in value)
                 {
                     ComboBoxItem cbi = new ComboBoxItem
