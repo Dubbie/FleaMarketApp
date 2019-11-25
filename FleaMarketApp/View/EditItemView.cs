@@ -126,18 +126,34 @@ namespace FleaMarketApp.View
         private bool ValidateInputs()
         {
             bool error = false;
+            string dialogTitle = "Hiba a tárgy frissítésekor";
 
             // Üres név esetén off
             if (string.IsNullOrEmpty(txtItemName.Text))
             {
-                MessageBox.Show("A tárgy neve nem lehet üres!", "Hiba a tárgy frissítésekor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A tárgy neve nem lehet üres!", dialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 error = true;
             }
             // Nem jó az ár
             if (!string.IsNullOrEmpty(txtPrice.Text) && !decimal.TryParse(txtPrice.Text, out _))
             {
-                MessageBox.Show("A ára nem helyesen lett megadva!", "Hiba a tárgy frissítésekor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A ára nem helyesen lett megadva!", dialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 error = true;
+            } else
+            {
+                ComboBoxItem selectedStatus = (ComboBoxItem)comboStatus.SelectedItem;
+                // Ha nincs ár akkor csak új státusszal mehet ki
+                if (string.IsNullOrEmpty(txtPrice.Text) && selectedStatus.Id != 1)
+                {
+                    MessageBox.Show("Ár nélküli termék csak újként lehet kint az adatbázisban!", dialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error = true;
+                }
+                else if (!string.IsNullOrEmpty(txtPrice.Text) && selectedStatus.Id == 1)
+                {
+                    // Ha van ár megadva a termék már nem lehet új, hanem aktív kell hogy legyen
+                    MessageBox.Show("Árral rendelkező termék nem lehet új!", dialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error = true;
+                }
             }
 
             return !error;
