@@ -64,6 +64,7 @@
     <Compile Include="Model\item_order.cs" />
     <Compile Include="Model\ComboBoxItem.cs" />
     <Compile Include="Presenter\EditItemPresenter.cs" />
+    <Compile Include="Presenter\ItemOrdersPresenter.cs" />
     <Compile Include="Presenter\MainMarketPresenter.cs" />
     <Compile Include="Presenter\NewItemPresenter.cs" />
     <Compile Include="Model\status.cs" />
@@ -74,8 +75,15 @@
       <DependentUpon>EditItemView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IEditItemView.cs" />
+    <Compile Include="View\IItemOrdersView.cs" />
     <Compile Include="View\IMainMarketView.cs" />
     <Compile Include="View\INewItemView.cs" />
+    <Compile Include="View\ItemOrdersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ItemOrdersView.Designer.cs">
+      <DependentUpon>ItemOrdersView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainMarketView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="View\EditItemView.resx">
       <DependentUpon>EditItemView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ItemOrdersView.resx">
+      <DependentUpon>ItemOrdersView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainMarketView.resx">
       <DependentUpon>MainMarketView.cs</DependentUpon>

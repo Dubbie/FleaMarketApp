@@ -37,6 +37,11 @@
             this.btnShowList = new System.Windows.Forms.Button();
             this.lblMainMarketTitle = new System.Windows.Forms.Label();
             this.panelFilters = new System.Windows.Forms.Panel();
+            this.lblPriceMax = new System.Windows.Forms.Label();
+            this.lblPriceMin = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.txtFilterPriceMax = new System.Windows.Forms.TextBox();
+            this.txtFilterPriceMin = new System.Windows.Forms.TextBox();
             this.comboStatus = new System.Windows.Forms.ComboBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.comboCategory = new System.Windows.Forms.ComboBox();
@@ -48,6 +53,8 @@
             this.lblFilterItemId = new System.Windows.Forms.Label();
             this.listItems = new System.Windows.Forms.ListBox();
             this.panelDetails = new System.Windows.Forms.Panel();
+            this.lblDetailModifiedAt = new System.Windows.Forms.Label();
+            this.lblDetailCreatedAt = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.lblDetailCategory = new System.Windows.Forms.Label();
             this.lblDetailItemPrice = new System.Windows.Forms.Label();
@@ -56,13 +63,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblDetailItemStatus = new System.Windows.Forms.Label();
             this.lblDetailItemId = new System.Windows.Forms.Label();
-            this.txtFilterPriceMin = new System.Windows.Forms.TextBox();
-            this.txtFilterPriceMax = new System.Windows.Forms.TextBox();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblPriceMin = new System.Windows.Forms.Label();
-            this.lblPriceMax = new System.Windows.Forms.Label();
-            this.lblDetailCreatedAt = new System.Windows.Forms.Label();
-            this.lblDetailModifiedAt = new System.Windows.Forms.Label();
+            this.btnItemOrders = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -138,6 +139,7 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.White;
+            this.panelSidebar.Controls.Add(this.btnItemOrders);
             this.panelSidebar.Controls.Add(this.btnNewItem);
             this.panelSidebar.Controls.Add(this.btnShowList);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -150,7 +152,7 @@
             // 
             // btnNewItem
             // 
-            this.btnNewItem.Location = new System.Drawing.Point(10, 59);
+            this.btnNewItem.Location = new System.Drawing.Point(10, 361);
             this.btnNewItem.Margin = new System.Windows.Forms.Padding(10);
             this.btnNewItem.Name = "btnNewItem";
             this.btnNewItem.Size = new System.Drawing.Size(180, 40);
@@ -205,6 +207,52 @@
             this.panelFilters.Name = "panelFilters";
             this.panelFilters.Size = new System.Drawing.Size(208, 341);
             this.panelFilters.TabIndex = 3;
+            // 
+            // lblPriceMax
+            // 
+            this.lblPriceMax.AutoSize = true;
+            this.lblPriceMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPriceMax.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblPriceMax.Location = new System.Drawing.Point(105, 93);
+            this.lblPriceMax.Name = "lblPriceMax";
+            this.lblPriceMax.Size = new System.Drawing.Size(34, 13);
+            this.lblPriceMax.TabIndex = 14;
+            this.lblPriceMax.Text = "Max.";
+            // 
+            // lblPriceMin
+            // 
+            this.lblPriceMin.AutoSize = true;
+            this.lblPriceMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPriceMin.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblPriceMin.Location = new System.Drawing.Point(2, 93);
+            this.lblPriceMin.Name = "lblPriceMin";
+            this.lblPriceMin.Size = new System.Drawing.Size(31, 13);
+            this.lblPriceMin.TabIndex = 13;
+            this.lblPriceMin.Text = "Min.";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPrice.Location = new System.Drawing.Point(2, 80);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(19, 13);
+            this.lblPrice.TabIndex = 12;
+            this.lblPrice.Text = "Ár";
+            // 
+            // txtFilterPriceMax
+            // 
+            this.txtFilterPriceMax.Location = new System.Drawing.Point(108, 109);
+            this.txtFilterPriceMax.Name = "txtFilterPriceMax";
+            this.txtFilterPriceMax.Size = new System.Drawing.Size(95, 20);
+            this.txtFilterPriceMax.TabIndex = 11;
+            // 
+            // txtFilterPriceMin
+            // 
+            this.txtFilterPriceMin.Location = new System.Drawing.Point(3, 109);
+            this.txtFilterPriceMin.Name = "txtFilterPriceMin";
+            this.txtFilterPriceMin.Size = new System.Drawing.Size(95, 20);
+            this.txtFilterPriceMin.TabIndex = 10;
             // 
             // comboStatus
             // 
@@ -318,6 +366,26 @@
             this.panelDetails.TabIndex = 1;
             this.panelDetails.Visible = false;
             // 
+            // lblDetailModifiedAt
+            // 
+            this.lblDetailModifiedAt.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblDetailModifiedAt.Location = new System.Drawing.Point(0, 201);
+            this.lblDetailModifiedAt.Name = "lblDetailModifiedAt";
+            this.lblDetailModifiedAt.Size = new System.Drawing.Size(208, 17);
+            this.lblDetailModifiedAt.TabIndex = 11;
+            this.lblDetailModifiedAt.Text = "Utoljára módosítva";
+            this.lblDetailModifiedAt.UseMnemonic = false;
+            // 
+            // lblDetailCreatedAt
+            // 
+            this.lblDetailCreatedAt.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblDetailCreatedAt.Location = new System.Drawing.Point(0, 184);
+            this.lblDetailCreatedAt.Name = "lblDetailCreatedAt";
+            this.lblDetailCreatedAt.Size = new System.Drawing.Size(208, 17);
+            this.lblDetailCreatedAt.TabIndex = 10;
+            this.lblDetailCreatedAt.Text = "Hozzáadva";
+            this.lblDetailCreatedAt.UseMnemonic = false;
+            // 
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(0, 318);
@@ -402,71 +470,16 @@
             this.lblDetailItemId.TabIndex = 4;
             this.lblDetailItemId.Text = "Azonosító";
             // 
-            // txtFilterPriceMin
+            // btnItemOrders
             // 
-            this.txtFilterPriceMin.Location = new System.Drawing.Point(3, 109);
-            this.txtFilterPriceMin.Name = "txtFilterPriceMin";
-            this.txtFilterPriceMin.Size = new System.Drawing.Size(95, 20);
-            this.txtFilterPriceMin.TabIndex = 10;
-            // 
-            // txtFilterPriceMax
-            // 
-            this.txtFilterPriceMax.Location = new System.Drawing.Point(108, 109);
-            this.txtFilterPriceMax.Name = "txtFilterPriceMax";
-            this.txtFilterPriceMax.Size = new System.Drawing.Size(95, 20);
-            this.txtFilterPriceMax.TabIndex = 11;
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPrice.Location = new System.Drawing.Point(2, 80);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(19, 13);
-            this.lblPrice.TabIndex = 12;
-            this.lblPrice.Text = "Ár";
-            // 
-            // lblPriceMin
-            // 
-            this.lblPriceMin.AutoSize = true;
-            this.lblPriceMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPriceMin.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPriceMin.Location = new System.Drawing.Point(2, 93);
-            this.lblPriceMin.Name = "lblPriceMin";
-            this.lblPriceMin.Size = new System.Drawing.Size(31, 13);
-            this.lblPriceMin.TabIndex = 13;
-            this.lblPriceMin.Text = "Min.";
-            // 
-            // lblPriceMax
-            // 
-            this.lblPriceMax.AutoSize = true;
-            this.lblPriceMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPriceMax.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPriceMax.Location = new System.Drawing.Point(105, 93);
-            this.lblPriceMax.Name = "lblPriceMax";
-            this.lblPriceMax.Size = new System.Drawing.Size(34, 13);
-            this.lblPriceMax.TabIndex = 14;
-            this.lblPriceMax.Text = "Max.";
-            // 
-            // lblDetailCreatedAt
-            // 
-            this.lblDetailCreatedAt.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDetailCreatedAt.Location = new System.Drawing.Point(0, 184);
-            this.lblDetailCreatedAt.Name = "lblDetailCreatedAt";
-            this.lblDetailCreatedAt.Size = new System.Drawing.Size(208, 17);
-            this.lblDetailCreatedAt.TabIndex = 10;
-            this.lblDetailCreatedAt.Text = "Hozzáadva";
-            this.lblDetailCreatedAt.UseMnemonic = false;
-            // 
-            // lblDetailModifiedAt
-            // 
-            this.lblDetailModifiedAt.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDetailModifiedAt.Location = new System.Drawing.Point(0, 201);
-            this.lblDetailModifiedAt.Name = "lblDetailModifiedAt";
-            this.lblDetailModifiedAt.Size = new System.Drawing.Size(208, 17);
-            this.lblDetailModifiedAt.TabIndex = 11;
-            this.lblDetailModifiedAt.Text = "Utoljára módosítva";
-            this.lblDetailModifiedAt.UseMnemonic = false;
+            this.btnItemOrders.Location = new System.Drawing.Point(10, 59);
+            this.btnItemOrders.Margin = new System.Windows.Forms.Padding(10);
+            this.btnItemOrders.Name = "btnItemOrders";
+            this.btnItemOrders.Size = new System.Drawing.Size(180, 40);
+            this.btnItemOrders.TabIndex = 2;
+            this.btnItemOrders.Text = "Megrendelések";
+            this.btnItemOrders.UseVisualStyleBackColor = true;
+            this.btnItemOrders.Click += new System.EventHandler(this.BtnItemOrders_Click);
             // 
             // MainMarketView
             // 
@@ -525,6 +538,7 @@
         private System.Windows.Forms.TextBox txtFilterPriceMin;
         private System.Windows.Forms.Label lblDetailModifiedAt;
         private System.Windows.Forms.Label lblDetailCreatedAt;
+        private System.Windows.Forms.Button btnItemOrders;
     }
 }
 

@@ -42,6 +42,7 @@ namespace FleaMarketApp.Presenter
             _View.ItemSelected += ShowItemDetails;
             _View.BtnNewItemClicked += ShowNewItemView;
             _View.BtnEditItemClicked += ShowEditItemView;
+            _View.BtnItemOrdersClicked += ShowItemOrdersView;
         }
 
         private void ShowNewItemView(object sender, EventArgs e)
@@ -78,6 +79,16 @@ namespace FleaMarketApp.Presenter
             _View.DetailModifiedAt = _View.SelectedItem.modified_at != null ?
                 "Módosítva: " + _View.SelectedItem.modified_at.Value.ToString("yyyy MMM d, HH:mm") :
                 "Nem volt módosítva";
+        }
+
+        private void ShowItemOrdersView(object sender, EventArgs e)
+        {
+            // Ezt a nézetet inaktívvá tesszük, megnyitjuk az új nézetet
+            ItemOrdersView view = new ItemOrdersView
+            {
+                Owner = _View.Form
+            };
+            view.Show();
         }
 
         private void UpdateItems(object sender, EventArgs e)

@@ -19,5 +19,10 @@ namespace FleaMarketApp
         public DateTime ordered_at { get; set; }
 
         public virtual item item { get; set; }
+
+        public override string ToString()
+        {
+            return $"{order_id} | {item.item_name} | {ordered_at.ToString("yyyy MMM d, HH:mm")}";
+        }
     }
 }

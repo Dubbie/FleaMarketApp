@@ -110,6 +110,7 @@ namespace FleaMarketApp
         public event EventHandler<EventArgs> FiltersChanged;
         public event EventHandler<EventArgs> BtnNewItemClicked;
         public event EventHandler<EventArgs> BtnEditItemClicked;
+        public event EventHandler<EventArgs> BtnItemOrdersClicked;
 
         // Filter stuff
         public string FilterItemName => txtFilterItemName.Text;
@@ -221,6 +222,13 @@ namespace FleaMarketApp
             this.Enabled = false;
 
             BtnEditItemClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void BtnItemOrders_Click(object sender, EventArgs e)
+        {
+            this.Enabled = false;
+
+            BtnItemOrdersClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

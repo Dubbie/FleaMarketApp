@@ -35,5 +35,6 @@ namespace FleaMarketApp.View
         event EventHandler<EventArgs> FiltersChanged;
         event EventHandler<EventArgs> BtnNewItemClicked;
         event EventHandler<EventArgs> BtnEditItemClicked;
+        event EventHandler<EventArgs> BtnItemOrdersClicked;
     }
 }
