@@ -58,12 +58,14 @@ SET IDENTITY_INSERT item ON
 INSERT INTO item (item_id, item_name, item_description, item_price, status_id, category_id, created_at, modified_at)
     VALUES
         (1, 'MVMT Karóra', 'Teljesen fekete, bőr szíjjal, piros mutatóval, alig használt', '16990.00', 2, 3, '2019-10-18 22:35:06', '2019-10-18 22:35:06'),
-        (2, 'Gyulai kolbász', 'Enyhén csípős, pálinkáért felárat fizetek', null, 1, 6, '2019-10-23 23:40:06', '2019-10-23 23:40:06'),
-        (3, 'Baywatch DVD', ';)', '5000.00', 3, 4, '2019-11-03 09:14:06', '2019-11-03 09:14:06');
+        (2, 'Gyulai kolbász', 'Enyhén csípős, pálinkáért felárat fizetek', null, 3, 6, '2019-10-23 23:40:06', '2019-10-23 23:40:06'),
+        (3, 'Baywatch DVD', ';)', '5000.00', 3, 4, '2019-11-03 09:14:06', '2019-11-03 09:14:06'),
+		(4, 'Barbi Baba', 'Olyan szép mint az én Barbi babám :)', '1000000.00', 3, 4, '2019-11-25 17:25:30', '2019-11-25 20:35:20');
 SET IDENTITY_INSERT item OFF
 
 SET IDENTITY_INSERT item_order ON
 INSERT INTO item_order (order_id, item_id, ordered_at) VALUES
-(1, 2, '2019-11-03 09:16:49');
+(1, 2, '2019-11-03 09:16:49'),
+(2, 4, '2019-11-25 20:35:20');
 GO
 SET IDENTITY_INSERT item_order OFF

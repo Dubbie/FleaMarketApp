@@ -39,6 +39,7 @@
             this.listItemOrders.Name = "listItemOrders";
             this.listItemOrders.Size = new System.Drawing.Size(536, 303);
             this.listItemOrders.TabIndex = 0;
+            this.listItemOrders.SelectedIndexChanged += new System.EventHandler(this.ListItemOrders_SelectedIndexChanged);
             // 
             // lblTItle
             // 
@@ -60,6 +61,7 @@
             this.Name = "ItemOrdersView";
             this.Text = "Megrendelések";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ItemOrdersView_FormClosed);
+            this.EnabledChanged += new System.EventHandler(this.ItemOrdersView_EnabledChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

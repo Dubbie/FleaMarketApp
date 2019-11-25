@@ -14,6 +14,9 @@ namespace FleaMarketApp.View
     public partial class ItemOrdersView : Form, IItemOrdersView
     {
         public ItemOrdersPresenter presenter;
+
+        public event EventHandler<EventArgs> UpdateOrders;
+
         public ItemOrdersView()
         {
             InitializeComponent();
@@ -35,6 +38,27 @@ namespace FleaMarketApp.View
         private void ItemOrdersView_FormClosed(object sender, FormClosedEventArgs e)
         {
             Owner.Enabled = true;
+        }
+
+        private void ListItemOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listItemOrders.SelectedIndex != -1)
+            {
+                OrderDetailsView details = new OrderDetailsView
+                {
+                    ItemOrder = (item_order)listItemOrders.SelectedItem,
+                    Owner = this
+                };
+
+                Enabled = false;
+                details.Show();
+            }
+        }
+
+        private void ItemOrdersView_EnabledChanged(object sender, EventArgs e)
+        {
+            // Update list
+            UpdateOrders?.Invoke(this, EventArgs.Empty);
         }
     }
 }

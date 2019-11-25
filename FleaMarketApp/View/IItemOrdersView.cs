@@ -9,5 +9,7 @@ namespace FleaMarketApp.View
     public interface IItemOrdersView
     {
         List<item_order> ItemOrders { set; }
+
+        event EventHandler<EventArgs> UpdateOrders;
     }
 }
