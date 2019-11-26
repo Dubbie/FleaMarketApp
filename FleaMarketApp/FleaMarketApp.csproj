@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\Auth.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\category.cs" />
     <Compile Include="Model\FleaMarketContext.cs" />
     <Compile Include="Model\item.cs" />

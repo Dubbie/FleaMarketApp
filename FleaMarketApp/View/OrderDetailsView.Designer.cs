@@ -32,10 +32,10 @@
             this.lblItemName = new System.Windows.Forms.Label();
             this.lblOrderedAt = new System.Windows.Forms.Label();
             this.splitDetailsMain = new System.Windows.Forms.SplitContainer();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnSellItem = new System.Windows.Forms.Button();
-            this.lblItemPrice = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.lblOrderDatePrefix = new System.Windows.Forms.Label();
+            this.lblItemPrice = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitDetailsMain)).BeginInit();
             this.splitDetailsMain.Panel1.SuspendLayout();
             this.splitDetailsMain.Panel2.SuspendLayout();
@@ -100,17 +100,6 @@
             this.splitDetailsMain.SplitterWidth = 1;
             this.splitDetailsMain.TabIndex = 3;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCancel.Location = new System.Drawing.Point(10, 10);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(130, 28);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Megrendelés törlése";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
-            // 
             // btnSellItem
             // 
             this.btnSellItem.Dock = System.Windows.Forms.DockStyle.Top;
@@ -122,6 +111,27 @@
             this.btnSellItem.UseVisualStyleBackColor = true;
             this.btnSellItem.Click += new System.EventHandler(this.btnSellItem_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCancel.Location = new System.Drawing.Point(10, 10);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(130, 28);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Megrendelés törlése";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // lblOrderDatePrefix
+            // 
+            this.lblOrderDatePrefix.AutoSize = true;
+            this.lblOrderDatePrefix.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblOrderDatePrefix.Location = new System.Drawing.Point(15, 137);
+            this.lblOrderDatePrefix.Name = "lblOrderDatePrefix";
+            this.lblOrderDatePrefix.Size = new System.Drawing.Size(72, 13);
+            this.lblOrderDatePrefix.TabIndex = 4;
+            this.lblOrderDatePrefix.Text = "Megrendelve:";
+            // 
             // lblItemPrice
             // 
             this.lblItemPrice.AutoSize = true;
@@ -131,16 +141,6 @@
             this.lblItemPrice.Size = new System.Drawing.Size(175, 20);
             this.lblItemPrice.TabIndex = 3;
             this.lblItemPrice.Text = "Megrendelt tárgy ára";
-            // 
-            // lblOrderDatePrefix
-            // 
-            this.lblOrderDatePrefix.AutoSize = true;
-            this.lblOrderDatePrefix.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblOrderDatePrefix.Location = new System.Drawing.Point(15, 137);
-            this.lblOrderDatePrefix.Name = "lblOrderDatePrefix";
-            this.lblOrderDatePrefix.Size = new System.Drawing.Size(75, 13);
-            this.lblOrderDatePrefix.TabIndex = 4;
-            this.lblOrderDatePrefix.Text = "Megrendelve: ";
             // 
             // OrderDetailsView
             // 
