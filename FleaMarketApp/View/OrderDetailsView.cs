@@ -1,4 +1,5 @@
-﻿using FleaMarketApp.Presenter;
+﻿using FleaMarketApp.Helper;
+using FleaMarketApp.Presenter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,13 +18,10 @@ namespace FleaMarketApp.View
         private readonly OrderDetailsPresenter presenter;
         private item_order _Order;
 
-        public event EventHandler<EventArgs> BtnCancelOrderClicked;
-
         public OrderDetailsView()
         {
             InitializeComponent();
-
-            _Admin = true;
+            _Admin = Auth.IsAdminUser();
             presenter = new OrderDetailsPresenter(this);
         }
 
@@ -41,20 +39,25 @@ namespace FleaMarketApp.View
                 lblOrderId.Text = _Order.order_id.ToString();
                 lblItemName.Text = _Order.item.item_name;
                 lblOrderedAt.Text = _Order.ordered_at.ToString("yyyy MMMM dd, HH:mm:ss");
+                lblItemPrice.Text = _Order.item.GetFormattedPrice();
 
-                UpdateCancelButton();
+                UpdateButtons();
             }
         }
 
         public Form Form { get => this; }
+
+        public event EventHandler<EventArgs> BtnCancelOrderClicked;
+        public event EventHandler<EventArgs> BtnSellItemClicked;
 
         private void OrderDetailsView_FormClosed(object sender, FormClosedEventArgs e)
         {
             Owner.Enabled = true;
         }
 
-        private void UpdateCancelButton()
+        private void UpdateButtons()
         {
+            // Visszavonási gomb
             if (GetBusinessDays(ItemOrder.ordered_at, DateTime.Now) > 1 && !_Admin)
             {
                 btnCancel.Enabled = false;
@@ -62,6 +65,17 @@ namespace FleaMarketApp.View
             else
             {
                 btnCancel.Enabled = true;
+            }
+
+            // Eladási gomb
+            if (_Admin == true)
+            {
+                btnSellItem.Enabled = true;
+                btnSellItem.Visible = true;
+            } else
+            {
+                btnSellItem.Enabled = false;
+                btnSellItem.Visible = false;
             }
         }
 
@@ -80,6 +94,11 @@ namespace FleaMarketApp.View
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             BtnCancelOrderClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnSellItem_Click(object sender, EventArgs e)
+        {
+            BtnSellItemClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

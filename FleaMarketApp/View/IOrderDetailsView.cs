@@ -13,6 +13,7 @@ namespace FleaMarketApp.View
 
         Form Form { get; }
 
+        event EventHandler<EventArgs> BtnSellItemClicked;
         event EventHandler<EventArgs> BtnCancelOrderClicked;
     }
 }
