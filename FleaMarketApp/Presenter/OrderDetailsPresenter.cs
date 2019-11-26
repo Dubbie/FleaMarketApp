@@ -29,12 +29,13 @@ namespace FleaMarketApp.Presenter
             using (var db = new FleaMarketContext())
             {
                 // Töröljük az adatbázisból a megrendelést
-                item_order foundOrder = db.item_order.Find(_View.ItemOrder.order_id);
+                item_order foundOrder = db.item_order.Find(_View.OrderId);
                 db.item_order.Remove(foundOrder);
 
                 // Állítsuk át a státuszt is
-                item foundItem = db.item.Find(_View.ItemOrder.item_id);
+                item foundItem = db.item.Find(_View.OrderItemId);
                 foundItem.status_id = 2;
+                foundItem.modified_at = DateTime.Now;
 
                 // Mentsük
                 db.SaveChanges();
@@ -48,7 +49,7 @@ namespace FleaMarketApp.Presenter
             // Frissítsük az adatbázisban a tárgyat
             using (var db = new FleaMarketContext())
             {
-                item item = db.item_order.Find(_View.ItemOrder.order_id).item;
+                item item = db.item_order.Find(_View.OrderId).item;
                 item.status_id = 4;
                 item.modified_at = DateTime.Now;
 

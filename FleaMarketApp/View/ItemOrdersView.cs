@@ -44,9 +44,21 @@ namespace FleaMarketApp.View
         {
             if (listItemOrders.SelectedIndex != -1)
             {
+                item_order foundOrder = (item_order)listItemOrders.SelectedItem;
+
                 OrderDetailsView details = new OrderDetailsView
                 {
-                    ItemOrder = (item_order)listItemOrders.SelectedItem,
+                    ItemName = foundOrder.item.item_name,
+                    ItemPrice = foundOrder.item.GetFormattedPrice(),
+                    OrderedAt = foundOrder.ordered_at,
+                    OrdererAddress = foundOrder.orderer_address,
+                    OrdererEmail = foundOrder.orderer_email,
+                    OrdererName = foundOrder.orderer_name,
+                    OrdererPhone = foundOrder.orderer_phone,
+                    StatusId = foundOrder.item.status_id,
+
+                    OrderItemId = foundOrder.item_id,
+                    OrderId = foundOrder.order_id,
                     Owner = this
                 };
 

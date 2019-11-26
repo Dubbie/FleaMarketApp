@@ -36,7 +36,17 @@ namespace FleaMarketApp.Presenter
                         // Hozzuk létre a részletes nézetet a megrendeléshez
                         OrderDetailsView newView = new OrderDetailsView()
                         {
-                            ItemOrder = foundOrder,
+                            OrderedAt = foundOrder.ordered_at,
+                            ItemName = foundOrder.item.item_name,
+                            ItemPrice = foundOrder.item.GetFormattedPrice(),
+                            OrdererAddress = foundOrder.orderer_address,
+                            OrdererEmail = foundOrder.orderer_email,
+                            OrdererName = foundOrder.orderer_name,
+                            OrdererPhone = foundOrder.orderer_phone,
+                            StatusId = foundOrder.item.status_id,
+
+                            OrderItemId = foundOrder.item_id,
+                            OrderId = foundOrder.order_id,
                             Owner = _View.Form
                         };
                         _View.Form.Enabled = false;

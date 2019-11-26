@@ -38,7 +38,7 @@ namespace FleaMarketApp
 
         public DateTime created_at { get; set; }
 
-        public DateTime? modified_at { get; set; }
+        public DateTime modified_at { get; set; }
 
         public virtual category category { get; set; }
 

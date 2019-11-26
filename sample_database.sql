@@ -25,13 +25,17 @@ CREATE TABLE item
         status_id   NUMERIC NOT NULL REFERENCES status(status_id),
         category_id NUMERIC NOT NULL REFERENCES category(category_id),
         created_at DATETIME NOT NULL,
-        modified_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        modified_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
 
 CREATE TABLE item_order
     (
         order_id    NUMERIC PRIMARY KEY IDENTITY(1,1),
         item_id    NUMERIC NOT NULL REFERENCES item(item_id),
+		orderer_name VARCHAR(255) NOT NULL,
+		orderer_address VARCHAR(255) NOT NULL,
+		orderer_email VARCHAR(255) NOT NULL,
+		orderer_phone VARCHAR(255) NOT NULL,
         ordered_at DATETIME NOT NULL
     );
 GO
@@ -67,9 +71,9 @@ INSERT INTO item (item_id, item_name, item_description, item_price, status_id, c
 SET IDENTITY_INSERT item OFF
 
 SET IDENTITY_INSERT item_order ON
-INSERT INTO item_order (order_id, item_id, ordered_at) VALUES
-(1, 2, '2019-11-03 09:16:49'),
-(2, 4, '2019-11-25 20:35:20'),
-(3, 7, '2019-11-22 17:30:00');
+INSERT INTO item_order (order_id, item_id, orderer_name, orderer_address, orderer_email, orderer_phone, ordered_at) VALUES
+(1, 2, 'Mihó Dániel', '2440 Százhalombatta, Pannónia u. 11 2./9.', 'miho.daniel@mdy.hu', '06308266701', '2019-11-03 09:16:49'),
+(2, 4, 'Mihó Dániel', '2440 Százhalombatta, Pannónia u. 11 2./9.', 'miho.daniel@mdy.hu', '06308266701', '2019-11-25 20:35:20'),
+(3, 7, 'Mihó Dániel', '2440 Százhalombatta, Pannónia u. 11 2./9.', 'miho.daniel@mdy.hu', '06308266701', '2019-11-22 17:30:00');
 GO
 SET IDENTITY_INSERT item_order OFF

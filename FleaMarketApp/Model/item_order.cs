@@ -16,6 +16,22 @@ namespace FleaMarketApp
         [Column(TypeName = "numeric")]
         public decimal item_id { get; set; }
 
+        [Required]
+        [StringLength(255)]
+        public string orderer_name { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        public string orderer_address { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        public string orderer_email { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        public string orderer_phone { get; set; }
+
         public DateTime ordered_at { get; set; }
 
         public virtual item item { get; set; }

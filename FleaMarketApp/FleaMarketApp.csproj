@@ -58,21 +58,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\Auth.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="Model\category.cs" />
     <Compile Include="Model\FleaMarketContext.cs" />
+    <Compile Include="Helper\Auth.cs" />
     <Compile Include="Model\item.cs" />
     <Compile Include="Model\item_order.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\ComboBoxItem.cs" />
     <Compile Include="Presenter\EditItemPresenter.cs" />
     <Compile Include="Presenter\ItemOrdersPresenter.cs" />
     <Compile Include="Presenter\MainMarketPresenter.cs" />
     <Compile Include="Presenter\NewItemPresenter.cs" />
-    <Compile Include="Model\status.cs" />
+    <Compile Include="Presenter\NewOrderPresenter.cs" />
     <Compile Include="Presenter\OfferItemPresenter.cs" />
     <Compile Include="Presenter\OrderDetailsPresenter.cs" />
     <Compile Include="Presenter\OrderSearchPresenter.cs" />
+    <Compile Include="Model\status.cs" />
     <Compile Include="View\EditItemView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +84,7 @@
     <Compile Include="View\IItemOrdersView.cs" />
     <Compile Include="View\IMainMarketView.cs" />
     <Compile Include="View\INewItemView.cs" />
+    <Compile Include="View\INewOrderView.cs" />
     <Compile Include="View\IOfferItemView.cs" />
     <Compile Include="View\IOrderDetailsView.cs" />
     <Compile Include="View\IOrderSearchView.cs" />
@@ -105,6 +107,12 @@
     </Compile>
     <Compile Include="View\NewItemView.Designer.cs">
       <DependentUpon>NewItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewOrderView.Designer.cs">
+      <DependentUpon>NewOrderView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\OfferItemView.cs">
       <SubType>Form</SubType>
@@ -144,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NewItemView.resx">
       <DependentUpon>NewItemView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewOrderView.resx">
+      <DependentUpon>NewOrderView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\OfferItemView.resx">
       <DependentUpon>OfferItemView.cs</DependentUpon>

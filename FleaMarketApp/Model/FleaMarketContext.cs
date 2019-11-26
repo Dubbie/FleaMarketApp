@@ -69,6 +69,22 @@ namespace FleaMarketApp
                 .Property(e => e.item_id)
                 .HasPrecision(18, 0);
 
+            modelBuilder.Entity<item_order>()
+                .Property(e => e.orderer_name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<item_order>()
+                .Property(e => e.orderer_address)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<item_order>()
+                .Property(e => e.orderer_email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<item_order>()
+                .Property(e => e.orderer_phone)
+                .IsUnicode(false);
+
             modelBuilder.Entity<status>()
                 .Property(e => e.status_id)
                 .HasPrecision(18, 0);

@@ -15,7 +15,8 @@ namespace FleaMarketApp.View
     public partial class OrderDetailsView : Form, IOrderDetailsView
     {
         private readonly OrderDetailsPresenter presenter;
-        private item_order _Order;
+        private decimal _OrderId;
+        private DateTime _OrderedAt;
 
         public OrderDetailsView()
         {
@@ -24,37 +25,48 @@ namespace FleaMarketApp.View
             presenter = new OrderDetailsPresenter(this);
         }
 
-        public item_order ItemOrder
+        public decimal OrderId
         {
             get
             {
-                return _Order;
+                return _OrderId;
             }
-
             set
             {
-                _Order = value;
-
-                lblOrderId.Text = "Megrendelési azonosító: " + _Order.order_id.ToString();
-                lblItemName.Text = _Order.item.item_name;
-                lblOrderedAt.Text = _Order.ordered_at.ToString("yyyy MMMM dd, HH:mm:ss");
-                lblItemPrice.Text = _Order.item.GetFormattedPrice();
-
-                UpdateLabels();
+                _OrderId = value;
+                lblOrderId.Text = "Megrendelési azonosító: " + _OrderId.ToString();
                 UpdateButtons();
             }
         }
 
-        private void UpdateLabels()
+        public string ItemName { set { lblItemName.Text = value; } }
+
+        public string ItemPrice { set { lblItemPrice.Text = value.ToString(); } }
+
+        public DateTime OrderedAt
         {
-            if (_Order.item.status_id != 4)
+            get
             {
-                lblSold.Visible = false;
+                return _OrderedAt;
+            }
+            set
+            {
+                _OrderedAt = value;
+                lblOrderedAt.Text = _OrderedAt.ToString("yyyy MMMM dd, HH:mm:ss");
             }
         }
 
+        public string OrdererName { set { lblOrdererName.Text = value; } }
+        public string OrdererAddress { set { lblOrdererAddress.Text = value; } }
+        public string OrdererEmail { set { lblOrdererEmail.Text = value; } }
+        public string OrdererPhone { set { lblOrdererPhone.Text = value; } }
+
+
         public Form Form { get => this; }
         public bool Admin { get; set; }
+        public decimal StatusId { get; set; }
+
+        public decimal OrderItemId { get; set; }
 
         public event EventHandler<EventArgs> BtnCancelOrderClicked;
         public event EventHandler<EventArgs> BtnSellItemClicked;
@@ -70,7 +82,7 @@ namespace FleaMarketApp.View
         private void UpdateButtons()
         {
             // Visszavonási gomb
-            if (GetBusinessDays(ItemOrder.ordered_at, DateTime.Now) > 1 && Admin == false)
+            if (GetBusinessDays(OrderedAt, DateTime.Now) > 1 && Admin == false)
             {
                 btnCancel.Enabled = false;
             }
@@ -86,7 +98,7 @@ namespace FleaMarketApp.View
                 btnSellItem.Visible = false;
             }
 
-            if (_Order.item.status_id == 4)
+            if (StatusId == 4)
             {
                 btnSellItem.Enabled = false;
                 btnCancel.Enabled = false;

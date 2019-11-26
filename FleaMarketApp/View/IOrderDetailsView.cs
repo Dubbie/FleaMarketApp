@@ -9,7 +9,18 @@ namespace FleaMarketApp.View
 {
     public interface IOrderDetailsView
     {
-        item_order ItemOrder { get; set; }
+        decimal OrderId { get; set; }
+        string ItemName { set; }
+        string ItemPrice { set; }
+        DateTime OrderedAt { get; set; }
+        decimal OrderItemId { get; set; }
+
+        string OrdererName { set; }
+        string OrdererAddress { set; }
+        string OrdererEmail { set; }
+        string OrdererPhone { set; }
+
+        decimal StatusId { get; set; }
 
         Form Form { get; }
         bool Admin { get; set; }

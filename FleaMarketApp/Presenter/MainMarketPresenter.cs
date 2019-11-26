@@ -116,33 +116,13 @@ namespace FleaMarketApp.Presenter
 
         private void OrderItem(object sender, EventArgs e)
         {
-            // Létrehozunk egy új megrendelést a jelenlegi dátummal
-            item_order order = new item_order()
+            // Létrehozzuk az új megrendelés nézetet
+            NewOrderView newOrderView = new NewOrderView
             {
-
-                item_id = _View.SelectedItem.item_id,
-                ordered_at = DateTime.Now,
+                Owner = _View.Form,
+                ItemId = _View.SelectedItem.item_id
             };
-
-            using (var db = new FleaMarketContext())
-            {
-                // A meglévő tárgy státuszát frissítjük
-                item foundItem = db.item.Find(_View.SelectedItem.item_id);
-                foundItem.status_id = 3;
-                foundItem.modified_at = DateTime.Now;
-
-                // Megrendelést hozzáadjuk
-                db.item_order.Add(order);
-
-                // Elmentjük
-                db.SaveChanges();
-
-                // Felhasználónak jelzünk
-                MessageBox.Show($"Megrendelés sikeresen létrehozva! \nMegrendelési azonosító: {order.order_id}", "Sikeres megrendelés!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Visszaállítjuk aktív állapotra a formot
-                _View.Form.Enabled = true;
-            }
+            newOrderView.Show();
         }
 
         private void ShowNewItemView(object sender, EventArgs e)
@@ -181,7 +161,7 @@ namespace FleaMarketApp.Presenter
             _View.DetailCategory = _View.SelectedItem.category.category_name;
             _View.DetailCreatedAt = "Hozzáadva: " + _View.SelectedItem.created_at.ToString("yyyy MMM d, HH:mm");
             _View.DetailModifiedAt = _View.SelectedItem.modified_at != null ?
-                "Módosítva: " + _View.SelectedItem.modified_at.Value.ToString("yyyy MMM d, HH:mm") :
+                "Módosítva: " + _View.SelectedItem.modified_at.ToString("yyyy MMM d, HH:mm") :
                 "Nem volt módosítva";
         }
 

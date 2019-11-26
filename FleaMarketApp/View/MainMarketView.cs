@@ -297,9 +297,12 @@ namespace FleaMarketApp
             {
                 FiltersChanged?.Invoke(this, EventArgs.Empty);
 
-                if (lastSelectedItemId != null)
+                if (lastSelectedItemId != null && lastSelectedItemId < listItems.Items.Count)
                 {
                     listItems.SelectedIndex = (int)lastSelectedItemId;
+                } else
+                {
+                    HideDetails();
                 }
             }
         }
