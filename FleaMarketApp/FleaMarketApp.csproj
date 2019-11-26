@@ -70,6 +70,7 @@
     <Compile Include="Presenter\MainMarketPresenter.cs" />
     <Compile Include="Presenter\NewItemPresenter.cs" />
     <Compile Include="Model\status.cs" />
+    <Compile Include="Presenter\OfferItemPresenter.cs" />
     <Compile Include="Presenter\OrderDetailsPresenter.cs" />
     <Compile Include="Presenter\OrderSearchPresenter.cs" />
     <Compile Include="View\EditItemView.cs">
@@ -82,6 +83,7 @@
     <Compile Include="View\IItemOrdersView.cs" />
     <Compile Include="View\IMainMarketView.cs" />
     <Compile Include="View\INewItemView.cs" />
+    <Compile Include="View\IOfferItemView.cs" />
     <Compile Include="View\IOrderDetailsView.cs" />
     <Compile Include="View\IOrderSearchView.cs" />
     <Compile Include="View\ItemOrdersView.cs">
@@ -103,6 +105,12 @@
     </Compile>
     <Compile Include="View\NewItemView.Designer.cs">
       <DependentUpon>NewItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OfferItemView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OfferItemView.Designer.cs">
+      <DependentUpon>OfferItemView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\OrderDetailsView.cs">
       <SubType>Form</SubType>
@@ -136,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NewItemView.resx">
       <DependentUpon>NewItemView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OfferItemView.resx">
+      <DependentUpon>OfferItemView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\OrderDetailsView.resx">
       <DependentUpon>OrderDetailsView.cs</DependentUpon>

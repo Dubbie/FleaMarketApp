@@ -62,6 +62,17 @@ namespace FleaMarketApp.Presenter
             _View.BtnMakeOrderClicked += OrderItem;
             _View.BtnCancelOrderClicked += CancelOrder;
             _View.BtnShowOrderClicked += ShowOrder;
+            _View.BtnOfferItemClicked += ShowOfferView;
+        }
+
+        private void ShowOfferView(object sender, EventArgs e)
+        {
+            OfferItemView offerItemView = new OfferItemView
+            {
+                ItemId = _View.SelectedItem.item_id,
+                Owner = _View.Form
+            };
+            offerItemView.Show();
         }
 
         private void ShowOrder(object sender, EventArgs e)

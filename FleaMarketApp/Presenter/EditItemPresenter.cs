@@ -24,6 +24,7 @@ namespace FleaMarketApp.Presenter
                                select c).ToList();
 
                 _Statuses = (from s in db.status
+                             where s.status_id != 3 && s.status_id != 4
                              select s).ToList();
             }
 

@@ -137,7 +137,7 @@ namespace FleaMarketApp.View
             // Nem jó az ár
             if (!string.IsNullOrEmpty(txtPrice.Text) && !decimal.TryParse(txtPrice.Text, out _))
             {
-                MessageBox.Show("A ára nem helyesen lett megadva!", dialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A termék ára nem helyesen lett megadva!", dialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 error = true;
             } else
             {

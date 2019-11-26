@@ -33,6 +33,7 @@
             this.lblList = new System.Windows.Forms.Label();
             this.lblFilter = new System.Windows.Forms.Label();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.lblMode = new System.Windows.Forms.Label();
             this.btnShowOrder = new System.Windows.Forms.Button();
             this.btnItemOrders = new System.Windows.Forms.Button();
             this.btnNewItem = new System.Windows.Forms.Button();
@@ -54,6 +55,7 @@
             this.lblFilterItemId = new System.Windows.Forms.Label();
             this.listItems = new System.Windows.Forms.ListBox();
             this.panelDetails = new System.Windows.Forms.Panel();
+            this.btnOfferItem = new System.Windows.Forms.Button();
             this.btnMakeOrder = new System.Windows.Forms.Button();
             this.lblDetailModifiedAt = new System.Windows.Forms.Label();
             this.lblDetailCreatedAt = new System.Windows.Forms.Label();
@@ -66,7 +68,6 @@
             this.lblDetailItemStatus = new System.Windows.Forms.Label();
             this.lblDetailItemId = new System.Windows.Forms.Label();
             this.btnCancelOrder = new System.Windows.Forms.Button();
-            this.lblMode = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -154,6 +155,16 @@
             this.tableLayoutPanel1.SetRowSpan(this.panelSidebar, 3);
             this.panelSidebar.Size = new System.Drawing.Size(200, 411);
             this.panelSidebar.TabIndex = 1;
+            // 
+            // lblMode
+            // 
+            this.lblMode.AutoSize = true;
+            this.lblMode.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblMode.Location = new System.Drawing.Point(10, 348);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(88, 13);
+            this.lblMode.TabIndex = 4;
+            this.lblMode.Text = "Felhasználói mód";
             // 
             // btnShowOrder
             // 
@@ -370,6 +381,7 @@
             // 
             // panelDetails
             // 
+            this.panelDetails.Controls.Add(this.btnOfferItem);
             this.panelDetails.Controls.Add(this.btnMakeOrder);
             this.panelDetails.Controls.Add(this.lblDetailModifiedAt);
             this.panelDetails.Controls.Add(this.lblDetailCreatedAt);
@@ -387,6 +399,20 @@
             this.panelDetails.Size = new System.Drawing.Size(208, 341);
             this.panelDetails.TabIndex = 1;
             this.panelDetails.Visible = false;
+            // 
+            // btnOfferItem
+            // 
+            this.btnOfferItem.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnOfferItem.Enabled = false;
+            this.btnOfferItem.Location = new System.Drawing.Point(0, 249);
+            this.btnOfferItem.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOfferItem.Name = "btnOfferItem";
+            this.btnOfferItem.Size = new System.Drawing.Size(208, 23);
+            this.btnOfferItem.TabIndex = 15;
+            this.btnOfferItem.Text = "Eladásra bocsájtom";
+            this.btnOfferItem.UseVisualStyleBackColor = true;
+            this.btnOfferItem.Visible = false;
+            this.btnOfferItem.Click += new System.EventHandler(this.btnOfferItem_Click);
             // 
             // btnMakeOrder
             // 
@@ -518,16 +544,6 @@
             this.btnCancelOrder.Visible = false;
             this.btnCancelOrder.Click += new System.EventHandler(this.BtnCancelOrder_Click);
             // 
-            // lblMode
-            // 
-            this.lblMode.AutoSize = true;
-            this.lblMode.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMode.Location = new System.Drawing.Point(10, 348);
-            this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(88, 13);
-            this.lblMode.TabIndex = 4;
-            this.lblMode.Text = "Felhasználói mód";
-            // 
             // MainMarketView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,6 +607,7 @@
         private System.Windows.Forms.Button btnCancelOrder;
         private System.Windows.Forms.Button btnShowOrder;
         private System.Windows.Forms.Label lblMode;
+        private System.Windows.Forms.Button btnOfferItem;
     }
 }
 
