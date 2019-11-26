@@ -68,6 +68,7 @@
             this.lblDetailItemStatus = new System.Windows.Forms.Label();
             this.lblDetailItemId = new System.Windows.Forms.Label();
             this.btnCancelOrder = new System.Windows.Forms.Button();
+            this.btnSell = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -392,6 +393,7 @@
             this.panelDetails.Controls.Add(this.lblDetailItemName);
             this.panelDetails.Controls.Add(this.panel1);
             this.panelDetails.Controls.Add(this.btnCancelOrder);
+            this.panelDetails.Controls.Add(this.btnSell);
             this.panelDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDetails.Location = new System.Drawing.Point(666, 60);
             this.panelDetails.Margin = new System.Windows.Forms.Padding(10);
@@ -404,7 +406,7 @@
             // 
             this.btnOfferItem.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnOfferItem.Enabled = false;
-            this.btnOfferItem.Location = new System.Drawing.Point(0, 249);
+            this.btnOfferItem.Location = new System.Drawing.Point(0, 226);
             this.btnOfferItem.Margin = new System.Windows.Forms.Padding(0);
             this.btnOfferItem.Name = "btnOfferItem";
             this.btnOfferItem.Size = new System.Drawing.Size(208, 23);
@@ -417,7 +419,7 @@
             // btnMakeOrder
             // 
             this.btnMakeOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnMakeOrder.Location = new System.Drawing.Point(0, 272);
+            this.btnMakeOrder.Location = new System.Drawing.Point(0, 249);
             this.btnMakeOrder.Margin = new System.Windows.Forms.Padding(0);
             this.btnMakeOrder.Name = "btnMakeOrder";
             this.btnMakeOrder.Size = new System.Drawing.Size(208, 23);
@@ -449,7 +451,7 @@
             // btnEdit
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnEdit.Location = new System.Drawing.Point(0, 295);
+            this.btnEdit.Location = new System.Drawing.Point(0, 272);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(208, 23);
@@ -534,7 +536,7 @@
             // btnCancelOrder
             // 
             this.btnCancelOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnCancelOrder.Location = new System.Drawing.Point(0, 318);
+            this.btnCancelOrder.Location = new System.Drawing.Point(0, 295);
             this.btnCancelOrder.Margin = new System.Windows.Forms.Padding(0);
             this.btnCancelOrder.Name = "btnCancelOrder";
             this.btnCancelOrder.Size = new System.Drawing.Size(208, 23);
@@ -543,6 +545,20 @@
             this.btnCancelOrder.UseVisualStyleBackColor = true;
             this.btnCancelOrder.Visible = false;
             this.btnCancelOrder.Click += new System.EventHandler(this.BtnCancelOrder_Click);
+            // 
+            // btnSell
+            // 
+            this.btnSell.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSell.Enabled = false;
+            this.btnSell.Location = new System.Drawing.Point(0, 318);
+            this.btnSell.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSell.Name = "btnSell";
+            this.btnSell.Size = new System.Drawing.Size(208, 23);
+            this.btnSell.TabIndex = 16;
+            this.btnSell.Text = "Eladom";
+            this.btnSell.UseVisualStyleBackColor = true;
+            this.btnSell.Visible = false;
+            this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // MainMarketView
             // 
@@ -608,6 +624,7 @@
         private System.Windows.Forms.Button btnShowOrder;
         private System.Windows.Forms.Label lblMode;
         private System.Windows.Forms.Button btnOfferItem;
+        private System.Windows.Forms.Button btnSell;
     }
 }
 

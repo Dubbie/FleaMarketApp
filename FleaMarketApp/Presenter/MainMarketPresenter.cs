@@ -63,6 +63,26 @@ namespace FleaMarketApp.Presenter
             _View.BtnCancelOrderClicked += CancelOrder;
             _View.BtnShowOrderClicked += ShowOrder;
             _View.BtnOfferItemClicked += ShowOfferView;
+            _View.BtnSellClicked += SellItem;
+        }
+
+        private void SellItem(object sender, EventArgs e)
+        {
+            _View.Form.Enabled = false;
+
+            // Átírjuk a terméket eladottra
+            using (var db = new FleaMarketContext())
+            {
+                item foundItem = db.item.Find(_View.SelectedItem.item_id);
+                foundItem.status_id = 4;
+                foundItem.modified_at = DateTime.Now;
+                db.SaveChanges();
+            }
+
+            if (MessageBox.Show("Termék sikeresen eladva!", "Termék eladva", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                _View.Form.Enabled = true;
+            }
         }
 
         private void ShowOfferView(object sender, EventArgs e)

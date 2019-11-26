@@ -169,6 +169,7 @@ namespace FleaMarketApp
         public event EventHandler<EventArgs> BtnCancelOrderClicked;
         public event EventHandler<EventArgs> BtnShowOrderClicked;
         public event EventHandler<EventArgs> BtnOfferItemClicked;
+        public event EventHandler<EventArgs> BtnSellClicked;
 
         // Szűrés
         public string FilterItemName => txtFilterItemName.Text;
@@ -257,13 +258,19 @@ namespace FleaMarketApp
                 btnEdit.Enabled = true;
             }
 
-            // Ha eladás alatt áll a termék akkor mutassuk a megrendelés törlése gombját
+            // Ha eladás alatt áll a termék akkor mutassuk a megrendelés törlése és az eladás gombot
             if (SelectedItem.status_id == 3)
             {
+                btnSell.Visible = true;
+                btnSell.Enabled = true;
                 btnCancelOrder.Visible = true;
+                btnCancelOrder.Enabled = true;
             } else
             {
+                btnSell.Visible = false;
+                btnSell.Enabled = false;
                 btnCancelOrder.Visible = false;
+                btnCancelOrder.Enabled = false;
             }
 
             // Ha a termék új akkor mutassuk az eladásra bocsájtás gombot
@@ -347,6 +354,11 @@ namespace FleaMarketApp
             Enabled = false;
 
             BtnOfferItemClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnSell_Click(object sender, EventArgs e)
+        {
+            BtnSellClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }
