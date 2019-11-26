@@ -40,5 +40,6 @@ namespace FleaMarketApp.View
         event EventHandler<EventArgs> BtnItemOrdersClicked;
         event EventHandler<EventArgs> BtnMakeOrderClicked;
         event EventHandler<EventArgs> BtnCancelOrderClicked;
+        event EventHandler<EventArgs> BtnShowOrderClicked;
     }
 }

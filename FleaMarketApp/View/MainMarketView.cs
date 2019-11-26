@@ -161,6 +161,7 @@ namespace FleaMarketApp
         public event EventHandler<EventArgs> BtnItemOrdersClicked;
         public event EventHandler<EventArgs> BtnMakeOrderClicked;
         public event EventHandler<EventArgs> BtnCancelOrderClicked;
+        public event EventHandler<EventArgs> BtnShowOrderClicked;
 
         // Szűrés
         public string FilterItemName => txtFilterItemName.Text;
@@ -311,6 +312,13 @@ namespace FleaMarketApp
             Enabled = false;
 
             BtnCancelOrderClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void BtnShowOrder_Click(object sender, EventArgs e)
+        {
+            Enabled = false;
+
+            BtnShowOrderClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

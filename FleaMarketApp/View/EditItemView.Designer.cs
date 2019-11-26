@@ -49,7 +49,7 @@
             this.comboCategory.Location = new System.Drawing.Point(12, 158);
             this.comboCategory.Name = "comboCategory";
             this.comboCategory.Size = new System.Drawing.Size(264, 21);
-            this.comboCategory.TabIndex = 12;
+            this.comboCategory.TabIndex = 3;
             // 
             // lblCategory
             // 
@@ -76,7 +76,7 @@
             this.txtPrice.Location = new System.Drawing.Point(12, 238);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(212, 44);
-            this.txtPrice.TabIndex = 14;
+            this.txtPrice.TabIndex = 5;
             // 
             // txtItemDescription
             // 
@@ -84,7 +84,7 @@
             this.txtItemDescription.Multiline = true;
             this.txtItemDescription.Name = "txtItemDescription";
             this.txtItemDescription.Size = new System.Drawing.Size(264, 75);
-            this.txtItemDescription.TabIndex = 11;
+            this.txtItemDescription.TabIndex = 2;
             // 
             // lblItemDescription
             // 
@@ -100,7 +100,7 @@
             this.btnSave.Location = new System.Drawing.Point(108, 299);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 15;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Frissítés";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -110,7 +110,7 @@
             this.txtItemName.Location = new System.Drawing.Point(12, 25);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(264, 20);
-            this.txtItemName.TabIndex = 10;
+            this.txtItemName.TabIndex = 1;
             // 
             // lblItemName
             // 
@@ -128,7 +128,7 @@
             this.comboStatus.Location = new System.Drawing.Point(12, 198);
             this.comboStatus.Name = "comboStatus";
             this.comboStatus.Size = new System.Drawing.Size(264, 21);
-            this.comboStatus.TabIndex = 18;
+            this.comboStatus.TabIndex = 4;
             // 
             // lblStatus
             // 
@@ -150,6 +150,7 @@
             // 
             // EditItemView
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 333);
@@ -166,6 +167,7 @@
             this.Controls.Add(this.txtItemName);
             this.Controls.Add(this.lblItemName);
             this.Name = "EditItemView";
+            this.ShowIcon = false;
             this.Text = "Tárgy szerkesztése";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditItemView_FormClosed);
             this.ResumeLayout(false);

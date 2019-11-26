@@ -35,7 +35,6 @@
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.btnItemOrders = new System.Windows.Forms.Button();
             this.btnNewItem = new System.Windows.Forms.Button();
-            this.btnShowList = new System.Windows.Forms.Button();
             this.lblMainMarketTitle = new System.Windows.Forms.Label();
             this.panelFilters = new System.Windows.Forms.Panel();
             this.lblPriceMax = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@
             this.lblDetailItemId = new System.Windows.Forms.Label();
             this.btnMakeOrder = new System.Windows.Forms.Button();
             this.btnCancelOrder = new System.Windows.Forms.Button();
+            this.btnShowOrder = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -141,9 +141,9 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.White;
+            this.panelSidebar.Controls.Add(this.btnShowOrder);
             this.panelSidebar.Controls.Add(this.btnItemOrders);
             this.panelSidebar.Controls.Add(this.btnNewItem);
-            this.panelSidebar.Controls.Add(this.btnShowList);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Margin = new System.Windows.Forms.Padding(0);
@@ -156,11 +156,11 @@
             // btnItemOrders
             // 
             this.btnItemOrders.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnItemOrders.Location = new System.Drawing.Point(10, 50);
+            this.btnItemOrders.Location = new System.Drawing.Point(10, 10);
             this.btnItemOrders.Margin = new System.Windows.Forms.Padding(10);
             this.btnItemOrders.Name = "btnItemOrders";
             this.btnItemOrders.Size = new System.Drawing.Size(180, 40);
-            this.btnItemOrders.TabIndex = 2;
+            this.btnItemOrders.TabIndex = 1;
             this.btnItemOrders.Text = "Megrendelések";
             this.btnItemOrders.UseVisualStyleBackColor = true;
             this.btnItemOrders.Click += new System.EventHandler(this.BtnItemOrders_Click);
@@ -172,21 +172,10 @@
             this.btnNewItem.Margin = new System.Windows.Forms.Padding(10);
             this.btnNewItem.Name = "btnNewItem";
             this.btnNewItem.Size = new System.Drawing.Size(180, 40);
-            this.btnNewItem.TabIndex = 1;
+            this.btnNewItem.TabIndex = 3;
             this.btnNewItem.Text = "Új Tárgy";
             this.btnNewItem.UseVisualStyleBackColor = true;
             this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
-            // 
-            // btnShowList
-            // 
-            this.btnShowList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnShowList.Location = new System.Drawing.Point(10, 10);
-            this.btnShowList.Margin = new System.Windows.Forms.Padding(10);
-            this.btnShowList.Name = "btnShowList";
-            this.btnShowList.Size = new System.Drawing.Size(180, 40);
-            this.btnShowList.TabIndex = 0;
-            this.btnShowList.Text = "Tárgyak";
-            this.btnShowList.UseVisualStyleBackColor = true;
             // 
             // lblMainMarketTitle
             // 
@@ -262,14 +251,14 @@
             this.txtFilterPriceMax.Location = new System.Drawing.Point(108, 109);
             this.txtFilterPriceMax.Name = "txtFilterPriceMax";
             this.txtFilterPriceMax.Size = new System.Drawing.Size(95, 20);
-            this.txtFilterPriceMax.TabIndex = 11;
+            this.txtFilterPriceMax.TabIndex = 7;
             // 
             // txtFilterPriceMin
             // 
             this.txtFilterPriceMin.Location = new System.Drawing.Point(3, 109);
             this.txtFilterPriceMin.Name = "txtFilterPriceMin";
             this.txtFilterPriceMin.Size = new System.Drawing.Size(95, 20);
-            this.txtFilterPriceMin.TabIndex = 10;
+            this.txtFilterPriceMin.TabIndex = 6;
             // 
             // comboStatus
             // 
@@ -297,7 +286,7 @@
             this.comboCategory.Location = new System.Drawing.Point(3, 149);
             this.comboCategory.Name = "comboCategory";
             this.comboCategory.Size = new System.Drawing.Size(200, 21);
-            this.comboCategory.TabIndex = 7;
+            this.comboCategory.TabIndex = 8;
             // 
             // lblCategory
             // 
@@ -332,7 +321,7 @@
             this.btnFilter.Location = new System.Drawing.Point(0, 318);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(208, 23);
-            this.btnFilter.TabIndex = 2;
+            this.btnFilter.TabIndex = 10;
             this.btnFilter.Text = "Szűrés";
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
@@ -342,7 +331,7 @@
             this.txtFilterItemId.Location = new System.Drawing.Point(3, 19);
             this.txtFilterItemId.Name = "txtFilterItemId";
             this.txtFilterItemId.Size = new System.Drawing.Size(201, 20);
-            this.txtFilterItemId.TabIndex = 1;
+            this.txtFilterItemId.TabIndex = 4;
             // 
             // lblFilterItemId
             // 
@@ -362,7 +351,7 @@
             this.listItems.Margin = new System.Windows.Forms.Padding(10);
             this.listItems.Name = "listItems";
             this.listItems.Size = new System.Drawing.Size(208, 341);
-            this.listItems.TabIndex = 2;
+            this.listItems.TabIndex = 11;
             this.listItems.SelectedIndexChanged += new System.EventHandler(this.listItems_SelectedIndexChanged);
             // 
             // panelDetails
@@ -412,7 +401,7 @@
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(208, 23);
-            this.btnEdit.TabIndex = 9;
+            this.btnEdit.TabIndex = 13;
             this.btnEdit.Text = "Szerkesztés";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -498,7 +487,7 @@
             this.btnMakeOrder.Name = "btnMakeOrder";
             this.btnMakeOrder.Size = new System.Drawing.Size(208, 23);
             this.btnMakeOrder.TabIndex = 12;
-            this.btnMakeOrder.Text = "Megveszem";
+            this.btnMakeOrder.Text = "Megrendelem";
             this.btnMakeOrder.UseVisualStyleBackColor = true;
             this.btnMakeOrder.Click += new System.EventHandler(this.BtnOrder_Click);
             // 
@@ -509,11 +498,23 @@
             this.btnCancelOrder.Margin = new System.Windows.Forms.Padding(0);
             this.btnCancelOrder.Name = "btnCancelOrder";
             this.btnCancelOrder.Size = new System.Drawing.Size(208, 23);
-            this.btnCancelOrder.TabIndex = 13;
+            this.btnCancelOrder.TabIndex = 14;
             this.btnCancelOrder.Text = "Megrendelés törlése";
             this.btnCancelOrder.UseVisualStyleBackColor = true;
             this.btnCancelOrder.Visible = false;
             this.btnCancelOrder.Click += new System.EventHandler(this.BtnCancelOrder_Click);
+            // 
+            // btnShowOrder
+            // 
+            this.btnShowOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnShowOrder.Location = new System.Drawing.Point(10, 50);
+            this.btnShowOrder.Margin = new System.Windows.Forms.Padding(10);
+            this.btnShowOrder.Name = "btnShowOrder";
+            this.btnShowOrder.Size = new System.Drawing.Size(180, 40);
+            this.btnShowOrder.TabIndex = 2;
+            this.btnShowOrder.Text = "Megrendelés megtekintése";
+            this.btnShowOrder.UseVisualStyleBackColor = true;
+            this.btnShowOrder.Click += new System.EventHandler(this.BtnShowOrder_Click);
             // 
             // MainMarketView
             // 
@@ -522,6 +523,7 @@
             this.ClientSize = new System.Drawing.Size(884, 411);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainMarketView";
+            this.ShowIcon = false;
             this.Text = "Bolhapiac";
             this.EnabledChanged += new System.EventHandler(this.MainMarketView_EnabledChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -538,7 +540,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnShowList;
         private System.Windows.Forms.Panel panelSidebar;
         private System.Windows.Forms.Panel panelDetails;
         private System.Windows.Forms.Label lblDetailItemDescription;
@@ -575,6 +576,7 @@
         private System.Windows.Forms.Button btnItemOrders;
         private System.Windows.Forms.Button btnMakeOrder;
         private System.Windows.Forms.Button btnCancelOrder;
+        private System.Windows.Forms.Button btnShowOrder;
     }
 }
 

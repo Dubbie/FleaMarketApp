@@ -130,6 +130,7 @@
             // 
             // NewItemView
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 294);
@@ -144,6 +145,7 @@
             this.Controls.Add(this.txtItemName);
             this.Controls.Add(this.lblItemName);
             this.Name = "NewItemView";
+            this.ShowIcon = false;
             this.Text = "Új tárgy";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NewItemView_FormClosed);
             this.ResumeLayout(false);

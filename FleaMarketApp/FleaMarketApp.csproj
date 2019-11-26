@@ -71,6 +71,7 @@
     <Compile Include="Presenter\NewItemPresenter.cs" />
     <Compile Include="Model\status.cs" />
     <Compile Include="Presenter\OrderDetailsPresenter.cs" />
+    <Compile Include="Presenter\OrderSearchPresenter.cs" />
     <Compile Include="View\EditItemView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +83,7 @@
     <Compile Include="View\IMainMarketView.cs" />
     <Compile Include="View\INewItemView.cs" />
     <Compile Include="View\IOrderDetailsView.cs" />
+    <Compile Include="View\IOrderSearchView.cs" />
     <Compile Include="View\ItemOrdersView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +110,12 @@
     <Compile Include="View\OrderDetailsView.Designer.cs">
       <DependentUpon>OrderDetailsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OrderSearchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrderSearchView.Designer.cs">
+      <DependentUpon>OrderSearchView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -131,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\OrderDetailsView.resx">
       <DependentUpon>OrderDetailsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OrderSearchView.resx">
+      <DependentUpon>OrderSearchView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

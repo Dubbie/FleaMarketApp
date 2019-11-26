@@ -16,7 +16,7 @@ namespace FleaMarketApp.Presenter
         private List<item> _Items;
         private List<category> _Categories;
         private List<status> _Statuses;
-        private bool _Admin;
+        private readonly bool _Admin;
 
         public MainMarketPresenter(IMainMarketView view)
         {
@@ -52,6 +52,8 @@ namespace FleaMarketApp.Presenter
             _View.Admin = _Admin;
             _View.Categories = _Categories;
             _View.Statuses = _Statuses;
+
+            // Események
             _View.FiltersChanged += UpdateItems;
             _View.ItemSelected += ShowItemDetails;
             _View.BtnNewItemClicked += ShowNewItemView;
@@ -59,6 +61,16 @@ namespace FleaMarketApp.Presenter
             _View.BtnItemOrdersClicked += ShowItemOrdersView;
             _View.BtnMakeOrderClicked += OrderItem;
             _View.BtnCancelOrderClicked += CancelOrder;
+            _View.BtnShowOrderClicked += ShowOrder;
+        }
+
+        private void ShowOrder(object sender, EventArgs e)
+        {
+            OrderSearchView view = new OrderSearchView
+            {
+                Owner = _View.Form
+            };
+            view.Show();
         }
 
         private void CancelOrder(object sender, EventArgs e)

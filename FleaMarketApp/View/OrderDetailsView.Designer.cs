@@ -34,9 +34,9 @@
             this.splitDetailsMain = new System.Windows.Forms.SplitContainer();
             this.btnSellItem = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblSold = new System.Windows.Forms.Label();
             this.lblOrderDatePrefix = new System.Windows.Forms.Label();
             this.lblItemPrice = new System.Windows.Forms.Label();
-            this.lblSold = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitDetailsMain)).BeginInit();
             this.splitDetailsMain.Panel1.SuspendLayout();
             this.splitDetailsMain.Panel2.SuspendLayout();
@@ -56,10 +56,10 @@
             // lblItemName
             // 
             this.lblItemName.AutoSize = true;
-            this.lblItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblItemName.Location = new System.Drawing.Point(12, 30);
             this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(227, 25);
+            this.lblItemName.Size = new System.Drawing.Size(248, 25);
             this.lblItemName.TabIndex = 1;
             this.lblItemName.Text = "Megrendelt tárgy neve";
             // 
@@ -67,7 +67,7 @@
             // 
             this.lblOrderedAt.AutoSize = true;
             this.lblOrderedAt.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblOrderedAt.Location = new System.Drawing.Point(96, 137);
+            this.lblOrderedAt.Location = new System.Drawing.Point(93, 137);
             this.lblOrderedAt.Name = "lblOrderedAt";
             this.lblOrderedAt.Size = new System.Drawing.Size(106, 13);
             this.lblOrderedAt.TabIndex = 2;
@@ -124,6 +124,16 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // lblSold
+            // 
+            this.lblSold.AutoSize = true;
+            this.lblSold.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblSold.Location = new System.Drawing.Point(13, 84);
+            this.lblSold.Name = "lblSold";
+            this.lblSold.Size = new System.Drawing.Size(441, 16);
+            this.lblSold.TabIndex = 5;
+            this.lblSold.Text = "A megrendelést már nem lehet módosítani mivel a termék eladásra került";
+            // 
             // lblOrderDatePrefix
             // 
             this.lblOrderDatePrefix.AutoSize = true;
@@ -144,16 +154,6 @@
             this.lblItemPrice.TabIndex = 3;
             this.lblItemPrice.Text = "Megrendelt tárgy ára";
             // 
-            // lblSold
-            // 
-            this.lblSold.AutoSize = true;
-            this.lblSold.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSold.Location = new System.Drawing.Point(13, 84);
-            this.lblSold.Name = "lblSold";
-            this.lblSold.Size = new System.Drawing.Size(441, 16);
-            this.lblSold.TabIndex = 5;
-            this.lblSold.Text = "A megrendelést már nem lehet módosítani mivel a termék eladásra került";
-            // 
             // OrderDetailsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,6 +161,7 @@
             this.ClientSize = new System.Drawing.Size(624, 159);
             this.Controls.Add(this.splitDetailsMain);
             this.Name = "OrderDetailsView";
+            this.ShowIcon = false;
             this.Text = "Megrendelés adatai";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderDetailsView_FormClosed);
             this.splitDetailsMain.Panel1.ResumeLayout(false);

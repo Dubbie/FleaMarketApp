@@ -1,4 +1,5 @@
-﻿using FleaMarketApp.View;
+﻿using FleaMarketApp.Helper;
+using FleaMarketApp.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,14 @@ namespace FleaMarketApp.Presenter
     public class OrderDetailsPresenter
     {
         private readonly IOrderDetailsView _View;
+        private readonly bool _Admin;
 
         public OrderDetailsPresenter(IOrderDetailsView view)
         {
             _View = view;
+
+            _Admin = Auth.IsAdminUser();
+
             _View.BtnCancelOrderClicked += CancelOrder;
             _View.BtnSellItemClicked += SellOrderedItem;
         }

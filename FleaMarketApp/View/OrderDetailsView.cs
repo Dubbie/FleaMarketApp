@@ -15,7 +15,6 @@ namespace FleaMarketApp.View
     public partial class OrderDetailsView : Form, IOrderDetailsView
     {
         private readonly OrderDetailsPresenter presenter;
-        private bool _Admin;
         private item_order _Order;
 
         public OrderDetailsView()
@@ -55,28 +54,23 @@ namespace FleaMarketApp.View
         }
 
         public Form Form { get => this; }
-        public bool Admin
-        {
-            get
-            {
-                return _Admin;
-            }
-            set {
-                _Admin = value;
-            }
-        }
+        public bool Admin { get; set; }
+
         public event EventHandler<EventArgs> BtnCancelOrderClicked;
         public event EventHandler<EventArgs> BtnSellItemClicked;
 
         private void OrderDetailsView_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Owner.Enabled = true;
+            if (Owner != null)
+            {
+                Owner.Enabled = true;
+            }
         }
 
         private void UpdateButtons()
         {
             // Visszavonási gomb
-            if (GetBusinessDays(ItemOrder.ordered_at, DateTime.Now) > 1 && !_Admin)
+            if (GetBusinessDays(ItemOrder.ordered_at, DateTime.Now) > 1 && Admin == false)
             {
                 btnCancel.Enabled = false;
             }
@@ -86,45 +80,50 @@ namespace FleaMarketApp.View
             }
 
             // Eladási gomb
+            if (Admin != true)
+            {
+                btnSellItem.Enabled = false;
+                btnSellItem.Visible = false;
+            }
+
             if (_Order.item.status_id == 4)
             {
                 btnSellItem.Enabled = false;
                 btnCancel.Enabled = false;
-            } else
-            {
-                if (_Admin == true)
-                {
-                    btnSellItem.Enabled = true;
-                    btnSellItem.Visible = true;
-                }
-                else
-                {
-                    btnSellItem.Enabled = false;
-                    btnSellItem.Visible = false;
-                }
             }
         }
 
-        private double GetBusinessDays(DateTime startD, DateTime endD)
+        private int GetBusinessDays(DateTime from, DateTime to)
         {
-            double calcBusinessDays =
-                1 + ((endD - startD).TotalDays * 5 -
-                (startD.DayOfWeek - endD.DayOfWeek) * 2) / 7;
-
-            if (endD.DayOfWeek == DayOfWeek.Saturday) calcBusinessDays--;
-            if (startD.DayOfWeek == DayOfWeek.Sunday) calcBusinessDays--;
-
-            return calcBusinessDays;
+            var dayDifference = (int)to.Subtract(from).TotalDays;
+            return Enumerable
+                .Range(1, dayDifference)
+                .Select(x => from.AddDays(x))
+                .Count(x => x.DayOfWeek != DayOfWeek.Saturday && x.DayOfWeek != DayOfWeek.Sunday);
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            BtnCancelOrderClicked?.Invoke(this, EventArgs.Empty);
+            if (MessageBox.Show(
+                "Biztosan szeretné törölni a megrendelést? Ez a folyamat nem visszafordítható.",
+                "Törlés megerősítése",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                BtnCancelOrderClicked?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void btnSellItem_Click(object sender, EventArgs e)
         {
-            BtnSellItemClicked?.Invoke(this, EventArgs.Empty);
+            if (MessageBox.Show(
+                 "Biztosan el szeretné adni ezt a tárgyat?",
+                 "Eladás megerősítése",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                BtnSellItemClicked?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }
