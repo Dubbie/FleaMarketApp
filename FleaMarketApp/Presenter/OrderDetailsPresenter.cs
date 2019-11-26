@@ -19,18 +19,24 @@ namespace FleaMarketApp.Presenter
 
             _Admin = Auth.IsAdminUser();
 
+            _View.Admin = _Admin;
             _View.BtnCancelOrderClicked += CancelOrder;
             _View.BtnSellItemClicked += SellOrderedItem;
         }
 
         public void CancelOrder(object sender, EventArgs args)
         {
-            // Töröljük az adatbázisból a megrendelést
             using (var db = new FleaMarketContext())
             {
-                item_order order = db.item_order.Find(_View.ItemOrder.order_id);
-                db.item_order.Remove(order);
+                // Töröljük az adatbázisból a megrendelést
+                item_order foundOrder = db.item_order.Find(_View.ItemOrder.order_id);
+                db.item_order.Remove(foundOrder);
 
+                // Állítsuk át a státuszt is
+                item foundItem = db.item.Find(_View.ItemOrder.item_id);
+                foundItem.status_id = 2;
+
+                // Mentsük
                 db.SaveChanges();
             }
 
@@ -44,6 +50,7 @@ namespace FleaMarketApp.Presenter
             {
                 item item = db.item_order.Find(_View.ItemOrder.order_id).item;
                 item.status_id = 4;
+                item.modified_at = DateTime.Now;
 
                 db.SaveChanges();
             }

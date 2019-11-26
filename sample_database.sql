@@ -62,12 +62,14 @@ INSERT INTO item (item_id, item_name, item_description, item_price, status_id, c
         (3, 'Baywatch DVD', ';)', '5000.00', 2, 4, '2019-11-03 09:14:06', '2019-11-03 09:14:06'),
 		(4, 'Barbi Baba', 'Olyan szép mint az én Barbi babám :)', '1000000.00', 3, 4, '2019-11-25 17:25:30', '2019-11-25 20:35:20'),
         (5, 'Nike Sapka', 'Fekete', '3000.00', 2, 1, '2019-11-26 14:13:06', '2019-11-26 14:13:06'),
-        (6, 'Akusztikus Gitár', 'Hordtáskával együtt', '15000.00', 2, 4, '2019-11-26 14:14:06', '2019-11-26 14:14:06');
+        (6, 'Akusztikus Gitár', 'Hordtáskával együtt', '15000.00', 2, 4, '2019-11-26 14:14:06', '2019-11-26 14:14:06'),
+        (7, 'Kakaós bögre', 'Cuki kis macskás mintával, gyönyörű állapotban', '490.00', 3, 6, '2019-11-20 16:30:00', '2019-11-22 17:30:00');
 SET IDENTITY_INSERT item OFF
 
 SET IDENTITY_INSERT item_order ON
 INSERT INTO item_order (order_id, item_id, ordered_at) VALUES
 (1, 2, '2019-11-03 09:16:49'),
-(2, 4, '2019-11-25 20:35:20');
+(2, 4, '2019-11-25 20:35:20'),
+(3, 7, '2019-11-22 17:30:00');
 GO
 SET IDENTITY_INSERT item_order OFF
