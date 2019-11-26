@@ -22,7 +22,8 @@ namespace FleaMarketApp
 
         public override string ToString()
         {
-            return $"{order_id} | {item.item_name} | {ordered_at.ToString("yyyy MMM d, HH:mm")}";
+            string sold_label = item.status_id == 4 ? " | Eladva" : " | Feldolgozás alatt";
+            return $"{order_id} | {item.item_name} | {ordered_at.ToString("yyyy MMM d, HH:mm")}{sold_label}";
         }
     }
 }

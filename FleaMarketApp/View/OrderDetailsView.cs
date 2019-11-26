@@ -14,14 +14,14 @@ namespace FleaMarketApp.View
 {
     public partial class OrderDetailsView : Form, IOrderDetailsView
     {
-        private readonly bool _Admin;
         private readonly OrderDetailsPresenter presenter;
+        private bool _Admin;
         private item_order _Order;
 
         public OrderDetailsView()
         {
             InitializeComponent();
-            _Admin = Auth.IsAdminUser();
+
             presenter = new OrderDetailsPresenter(this);
         }
 
@@ -36,17 +36,35 @@ namespace FleaMarketApp.View
             {
                 _Order = value;
 
-                lblOrderId.Text = _Order.order_id.ToString();
+                lblOrderId.Text = "Megrendelési azonosító: " + _Order.order_id.ToString();
                 lblItemName.Text = _Order.item.item_name;
                 lblOrderedAt.Text = _Order.ordered_at.ToString("yyyy MMMM dd, HH:mm:ss");
                 lblItemPrice.Text = _Order.item.GetFormattedPrice();
 
+                UpdateLabels();
                 UpdateButtons();
             }
         }
 
-        public Form Form { get => this; }
+        private void UpdateLabels()
+        {
+            if (_Order.item.status_id != 4)
+            {
+                lblSold.Visible = false;
+            }
+        }
 
+        public Form Form { get => this; }
+        public bool Admin
+        {
+            get
+            {
+                return _Admin;
+            }
+            set {
+                _Admin = value;
+            }
+        }
         public event EventHandler<EventArgs> BtnCancelOrderClicked;
         public event EventHandler<EventArgs> BtnSellItemClicked;
 
@@ -68,14 +86,22 @@ namespace FleaMarketApp.View
             }
 
             // Eladási gomb
-            if (_Admin == true)
-            {
-                btnSellItem.Enabled = true;
-                btnSellItem.Visible = true;
-            } else
+            if (_Order.item.status_id == 4)
             {
                 btnSellItem.Enabled = false;
-                btnSellItem.Visible = false;
+                btnCancel.Enabled = false;
+            } else
+            {
+                if (_Admin == true)
+                {
+                    btnSellItem.Enabled = true;
+                    btnSellItem.Visible = true;
+                }
+                else
+                {
+                    btnSellItem.Enabled = false;
+                    btnSellItem.Visible = false;
+                }
             }
         }
 

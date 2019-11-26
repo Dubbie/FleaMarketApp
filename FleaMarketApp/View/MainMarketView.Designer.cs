@@ -33,6 +33,7 @@
             this.lblList = new System.Windows.Forms.Label();
             this.lblFilter = new System.Windows.Forms.Label();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.btnItemOrders = new System.Windows.Forms.Button();
             this.btnNewItem = new System.Windows.Forms.Button();
             this.btnShowList = new System.Windows.Forms.Button();
             this.lblMainMarketTitle = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblDetailItemStatus = new System.Windows.Forms.Label();
             this.lblDetailItemId = new System.Windows.Forms.Label();
-            this.btnItemOrders = new System.Windows.Forms.Button();
+            this.btnMakeOrder = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -146,12 +147,26 @@
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Margin = new System.Windows.Forms.Padding(0);
             this.panelSidebar.Name = "panelSidebar";
+            this.panelSidebar.Padding = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel1.SetRowSpan(this.panelSidebar, 3);
             this.panelSidebar.Size = new System.Drawing.Size(200, 411);
             this.panelSidebar.TabIndex = 1;
             // 
+            // btnItemOrders
+            // 
+            this.btnItemOrders.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnItemOrders.Location = new System.Drawing.Point(10, 50);
+            this.btnItemOrders.Margin = new System.Windows.Forms.Padding(10);
+            this.btnItemOrders.Name = "btnItemOrders";
+            this.btnItemOrders.Size = new System.Drawing.Size(180, 40);
+            this.btnItemOrders.TabIndex = 2;
+            this.btnItemOrders.Text = "Megrendelések";
+            this.btnItemOrders.UseVisualStyleBackColor = true;
+            this.btnItemOrders.Click += new System.EventHandler(this.BtnItemOrders_Click);
+            // 
             // btnNewItem
             // 
+            this.btnNewItem.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnNewItem.Location = new System.Drawing.Point(10, 361);
             this.btnNewItem.Margin = new System.Windows.Forms.Padding(10);
             this.btnNewItem.Name = "btnNewItem";
@@ -163,6 +178,7 @@
             // 
             // btnShowList
             // 
+            this.btnShowList.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnShowList.Location = new System.Drawing.Point(10, 10);
             this.btnShowList.Margin = new System.Windows.Forms.Padding(10);
             this.btnShowList.Name = "btnShowList";
@@ -350,6 +366,7 @@
             // 
             // panelDetails
             // 
+            this.panelDetails.Controls.Add(this.btnMakeOrder);
             this.panelDetails.Controls.Add(this.lblDetailModifiedAt);
             this.panelDetails.Controls.Add(this.lblDetailCreatedAt);
             this.panelDetails.Controls.Add(this.btnEdit);
@@ -388,10 +405,11 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnEdit.Location = new System.Drawing.Point(0, 318);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.Size = new System.Drawing.Size(208, 23);
             this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "Szerkesztés";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -470,16 +488,17 @@
             this.lblDetailItemId.TabIndex = 4;
             this.lblDetailItemId.Text = "Azonosító";
             // 
-            // btnItemOrders
+            // btnMakeOrder
             // 
-            this.btnItemOrders.Location = new System.Drawing.Point(10, 59);
-            this.btnItemOrders.Margin = new System.Windows.Forms.Padding(10);
-            this.btnItemOrders.Name = "btnItemOrders";
-            this.btnItemOrders.Size = new System.Drawing.Size(180, 40);
-            this.btnItemOrders.TabIndex = 2;
-            this.btnItemOrders.Text = "Megrendelések";
-            this.btnItemOrders.UseVisualStyleBackColor = true;
-            this.btnItemOrders.Click += new System.EventHandler(this.BtnItemOrders_Click);
+            this.btnMakeOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnMakeOrder.Location = new System.Drawing.Point(0, 295);
+            this.btnMakeOrder.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMakeOrder.Name = "btnMakeOrder";
+            this.btnMakeOrder.Size = new System.Drawing.Size(208, 23);
+            this.btnMakeOrder.TabIndex = 12;
+            this.btnMakeOrder.Text = "Megveszem";
+            this.btnMakeOrder.UseVisualStyleBackColor = true;
+            this.btnMakeOrder.Click += new System.EventHandler(this.BtnOrder_Click);
             // 
             // MainMarketView
             // 
@@ -539,6 +558,7 @@
         private System.Windows.Forms.Label lblDetailModifiedAt;
         private System.Windows.Forms.Label lblDetailCreatedAt;
         private System.Windows.Forms.Button btnItemOrders;
+        private System.Windows.Forms.Button btnMakeOrder;
     }
 }
 

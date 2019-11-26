@@ -17,6 +17,7 @@ namespace FleaMarketApp
     {
         private readonly MainMarketPresenter presenter;
         private int? lastSelectedItemId;
+        private bool _Admin;
 
         public MainMarketView()
         {
@@ -26,6 +27,53 @@ namespace FleaMarketApp
         }
 
         public Form Form => this;
+
+        public bool Admin
+        {
+            get
+            {
+                return _Admin;
+            }
+            set
+            {
+                _Admin = value;
+                UpdateView();
+            }
+        }
+
+        private void UpdateView()
+        {
+            if (_Admin != true)
+            {
+                // Megrendelések gomb
+                btnItemOrders.Enabled = false;
+                btnItemOrders.Visible = false;
+
+                // Új tárgy gomb
+                btnNewItem.Enabled = false;
+                btnNewItem.Visible = false;
+
+                // Státusz választó
+                lblStatus.Enabled = false;
+                lblStatus.Visible = false;
+                comboStatus.Enabled = false;
+                comboStatus.Visible = false;
+
+                // Megveszem gomb megjelenítése
+                btnMakeOrder.Enabled = true;
+                btnMakeOrder.Visible = true;
+
+                // Szerkesztés gomb eltüntetése
+                btnEdit.Enabled = false;
+                btnEdit.Visible = false;
+            }
+            else
+            {
+                // Megveszem gomb eltünetése
+                btnMakeOrder.Enabled = false;
+                btnMakeOrder.Visible = false;
+            }
+        }
 
         public List<item> Items
         {
@@ -44,12 +92,12 @@ namespace FleaMarketApp
         {
             set
             {
-                // Reset
+                // Töröljük alaphelyzetbe
                 comboCategory.Items.Clear();
                 comboCategory.DisplayMember = "Key";
                 comboCategory.ValueMember = "Value";
 
-                // Initialize it with whatever
+                // Alapértelmezés hozzáadása
                 ComboBoxItem whateverItem = new ComboBoxItem
                 {
                     Id = -1,
@@ -61,7 +109,7 @@ namespace FleaMarketApp
 
                 foreach (category category in value)
                 {
-                    // Create the ComboBoxItem, the output comes from the ToString return value
+                    // Létrehozzuk a ComboBoxItem-et, a szöveg a ToString-ból jön
                     ComboBoxItem cbi = new ComboBoxItem
                     {
                         Id = category.category_id,
@@ -77,12 +125,12 @@ namespace FleaMarketApp
         {
             set
             {
-                // Reset
+                // Töröljük alaphelyzetbe
                 comboStatus.Items.Clear();
                 comboStatus.DisplayMember = "Key";
                 comboStatus.ValueMember = "Value";
 
-                // Initialize it with whatever
+                // Alapértelmezés hozzáadása
                 ComboBoxItem whateverItem = new ComboBoxItem
                 {
                     Id = -1,
@@ -94,7 +142,7 @@ namespace FleaMarketApp
 
                 foreach (status status in value)
                 {
-                    // Create the ComboBoxItem, the output comes from the ToString return value
+                    // Létrehozzuk a ComboBoxItem-et, a szöveg a ToString-ból jön
                     ComboBoxItem cbi = new ComboBoxItem
                     {
                         Id = status.status_id,
@@ -111,8 +159,9 @@ namespace FleaMarketApp
         public event EventHandler<EventArgs> BtnNewItemClicked;
         public event EventHandler<EventArgs> BtnEditItemClicked;
         public event EventHandler<EventArgs> BtnItemOrdersClicked;
+        public event EventHandler<EventArgs> BtnMakeOrderClicked;
 
-        // Filter stuff
+        // Szűrés
         public string FilterItemName => txtFilterItemName.Text;
         public int? FilterItemId
         {
@@ -157,7 +206,7 @@ namespace FleaMarketApp
         }
 
         public item SelectedItem => (item)listItems.Items[listItems.SelectedIndex];
-        // Details
+        // Részletek
         public string DetailItemId { set => lblDetailItemId.Text = value; }
         public string DetailItemName { set => lblDetailItemName.Text = value; }
         public string DetailItemStatus { set => lblDetailItemStatus.Text = value; }
@@ -167,7 +216,7 @@ namespace FleaMarketApp
         public string DetailCreatedAt { set => lblDetailCreatedAt.Text = value; }
         public string DetailModifiedAt { set => lblDetailModifiedAt.Text = value; }
 
-        // Event handling
+        // Eseménykezelés
         private void listItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listItems.SelectedIndex != -1)
@@ -175,7 +224,7 @@ namespace FleaMarketApp
                 lastSelectedItemId = listItems.SelectedIndex;
                 ItemSelected?.Invoke(this, EventArgs.Empty);
 
-                // Show item details
+                // Mutassuk a részletek panelt
                 ShowDetails();
             }
         }
@@ -189,6 +238,15 @@ namespace FleaMarketApp
         {
             lblDetails.Visible = true;
             panelDetails.Visible = true;
+
+            // Módosítás gomb csak akkor elérhető, ha a tárgy nincs eladva vagy megrendelés alatt
+            if (SelectedItem.status_id == 4 || SelectedItem.status_id == 3)
+            {
+                btnEdit.Enabled = false;
+            } else
+            {
+                btnEdit.Enabled = true;
+            }
         }
 
         private void HideDetails()
@@ -199,7 +257,7 @@ namespace FleaMarketApp
 
         private void btnNewItem_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
+            Enabled = false;
 
             BtnNewItemClicked?.Invoke(this, EventArgs.Empty);
         }
@@ -219,16 +277,23 @@ namespace FleaMarketApp
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
+            Enabled = false;
 
             BtnEditItemClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void BtnItemOrders_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
+            Enabled = false;
 
             BtnItemOrdersClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void BtnOrder_Click(object sender, EventArgs e)
+        {
+            Enabled = false;
+
+            BtnMakeOrderClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -10,7 +10,9 @@ namespace FleaMarketApp.View
 {
     interface IMainMarketView
     {
-        Form Form {get;}
+        Form Form { get; }
+
+        bool Admin { get; set; }
         List<item> Items { set; }
         item SelectedItem { get; }
         int? FilterItemId { get; }
@@ -36,5 +38,6 @@ namespace FleaMarketApp.View
         event EventHandler<EventArgs> BtnNewItemClicked;
         event EventHandler<EventArgs> BtnEditItemClicked;
         event EventHandler<EventArgs> BtnItemOrdersClicked;
+        event EventHandler<EventArgs> BtnMakeOrderClicked;
     }
 }

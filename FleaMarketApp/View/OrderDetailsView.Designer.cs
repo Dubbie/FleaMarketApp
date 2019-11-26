@@ -36,6 +36,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblOrderDatePrefix = new System.Windows.Forms.Label();
             this.lblItemPrice = new System.Windows.Forms.Label();
+            this.lblSold = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitDetailsMain)).BeginInit();
             this.splitDetailsMain.Panel1.SuspendLayout();
             this.splitDetailsMain.Panel2.SuspendLayout();
@@ -89,6 +90,7 @@
             // 
             // splitDetailsMain.Panel2
             // 
+            this.splitDetailsMain.Panel2.Controls.Add(this.lblSold);
             this.splitDetailsMain.Panel2.Controls.Add(this.lblOrderDatePrefix);
             this.splitDetailsMain.Panel2.Controls.Add(this.lblItemPrice);
             this.splitDetailsMain.Panel2.Controls.Add(this.lblOrderId);
@@ -142,6 +144,16 @@
             this.lblItemPrice.TabIndex = 3;
             this.lblItemPrice.Text = "Megrendelt tárgy ára";
             // 
+            // lblSold
+            // 
+            this.lblSold.AutoSize = true;
+            this.lblSold.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblSold.Location = new System.Drawing.Point(13, 84);
+            this.lblSold.Name = "lblSold";
+            this.lblSold.Size = new System.Drawing.Size(441, 16);
+            this.lblSold.TabIndex = 5;
+            this.lblSold.Text = "A megrendelést már nem lehet módosítani mivel a termék eladásra került";
+            // 
             // OrderDetailsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,5 +182,6 @@
         private System.Windows.Forms.Button btnSellItem;
         private System.Windows.Forms.Label lblItemPrice;
         private System.Windows.Forms.Label lblOrderDatePrefix;
+        private System.Windows.Forms.Label lblSold;
     }
 }

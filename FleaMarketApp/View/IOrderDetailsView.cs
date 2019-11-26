@@ -12,6 +12,7 @@ namespace FleaMarketApp.View
         item_order ItemOrder { get; set; }
 
         Form Form { get; }
+        bool Admin { get; set; }
 
         event EventHandler<EventArgs> BtnSellItemClicked;
         event EventHandler<EventArgs> BtnCancelOrderClicked;
