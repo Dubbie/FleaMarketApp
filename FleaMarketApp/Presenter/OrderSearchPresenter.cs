@@ -36,12 +36,11 @@ namespace FleaMarketApp.Presenter
                         // Hozzuk létre a részletes nézetet a megrendeléshez
                         OrderDetailsView newView = new OrderDetailsView()
                         {
-                            ItemOrder = foundOrder
+                            ItemOrder = foundOrder,
+                            Owner = _View.Form
                         };
+                        _View.Form.Enabled = false;
                         newView.Show();
-
-                        // Zárjuk be a keresőt
-                        _View.Form.Close();
                     }
                 }
             }
