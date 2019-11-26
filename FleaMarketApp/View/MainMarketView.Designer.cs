@@ -33,6 +33,7 @@
             this.lblList = new System.Windows.Forms.Label();
             this.lblFilter = new System.Windows.Forms.Label();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.btnShowOrder = new System.Windows.Forms.Button();
             this.btnItemOrders = new System.Windows.Forms.Button();
             this.btnNewItem = new System.Windows.Forms.Button();
             this.lblMainMarketTitle = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@
             this.lblFilterItemId = new System.Windows.Forms.Label();
             this.listItems = new System.Windows.Forms.ListBox();
             this.panelDetails = new System.Windows.Forms.Panel();
+            this.btnMakeOrder = new System.Windows.Forms.Button();
             this.lblDetailModifiedAt = new System.Windows.Forms.Label();
             this.lblDetailCreatedAt = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -63,9 +65,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblDetailItemStatus = new System.Windows.Forms.Label();
             this.lblDetailItemId = new System.Windows.Forms.Label();
-            this.btnMakeOrder = new System.Windows.Forms.Button();
             this.btnCancelOrder = new System.Windows.Forms.Button();
-            this.btnShowOrder = new System.Windows.Forms.Button();
+            this.lblMode = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -141,6 +142,7 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.White;
+            this.panelSidebar.Controls.Add(this.lblMode);
             this.panelSidebar.Controls.Add(this.btnShowOrder);
             this.panelSidebar.Controls.Add(this.btnItemOrders);
             this.panelSidebar.Controls.Add(this.btnNewItem);
@@ -152,6 +154,18 @@
             this.tableLayoutPanel1.SetRowSpan(this.panelSidebar, 3);
             this.panelSidebar.Size = new System.Drawing.Size(200, 411);
             this.panelSidebar.TabIndex = 1;
+            // 
+            // btnShowOrder
+            // 
+            this.btnShowOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnShowOrder.Location = new System.Drawing.Point(10, 50);
+            this.btnShowOrder.Margin = new System.Windows.Forms.Padding(10);
+            this.btnShowOrder.Name = "btnShowOrder";
+            this.btnShowOrder.Size = new System.Drawing.Size(180, 40);
+            this.btnShowOrder.TabIndex = 2;
+            this.btnShowOrder.Text = "Megrendelés megtekintése";
+            this.btnShowOrder.UseVisualStyleBackColor = true;
+            this.btnShowOrder.Click += new System.EventHandler(this.BtnShowOrder_Click);
             // 
             // btnItemOrders
             // 
@@ -374,6 +388,18 @@
             this.panelDetails.TabIndex = 1;
             this.panelDetails.Visible = false;
             // 
+            // btnMakeOrder
+            // 
+            this.btnMakeOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnMakeOrder.Location = new System.Drawing.Point(0, 272);
+            this.btnMakeOrder.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMakeOrder.Name = "btnMakeOrder";
+            this.btnMakeOrder.Size = new System.Drawing.Size(208, 23);
+            this.btnMakeOrder.TabIndex = 12;
+            this.btnMakeOrder.Text = "Megrendelem";
+            this.btnMakeOrder.UseVisualStyleBackColor = true;
+            this.btnMakeOrder.Click += new System.EventHandler(this.BtnOrder_Click);
+            // 
             // lblDetailModifiedAt
             // 
             this.lblDetailModifiedAt.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -479,18 +505,6 @@
             this.lblDetailItemId.TabIndex = 4;
             this.lblDetailItemId.Text = "Azonosító";
             // 
-            // btnMakeOrder
-            // 
-            this.btnMakeOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnMakeOrder.Location = new System.Drawing.Point(0, 272);
-            this.btnMakeOrder.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMakeOrder.Name = "btnMakeOrder";
-            this.btnMakeOrder.Size = new System.Drawing.Size(208, 23);
-            this.btnMakeOrder.TabIndex = 12;
-            this.btnMakeOrder.Text = "Megrendelem";
-            this.btnMakeOrder.UseVisualStyleBackColor = true;
-            this.btnMakeOrder.Click += new System.EventHandler(this.BtnOrder_Click);
-            // 
             // btnCancelOrder
             // 
             this.btnCancelOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -504,17 +518,15 @@
             this.btnCancelOrder.Visible = false;
             this.btnCancelOrder.Click += new System.EventHandler(this.BtnCancelOrder_Click);
             // 
-            // btnShowOrder
+            // lblMode
             // 
-            this.btnShowOrder.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnShowOrder.Location = new System.Drawing.Point(10, 50);
-            this.btnShowOrder.Margin = new System.Windows.Forms.Padding(10);
-            this.btnShowOrder.Name = "btnShowOrder";
-            this.btnShowOrder.Size = new System.Drawing.Size(180, 40);
-            this.btnShowOrder.TabIndex = 2;
-            this.btnShowOrder.Text = "Megrendelés megtekintése";
-            this.btnShowOrder.UseVisualStyleBackColor = true;
-            this.btnShowOrder.Click += new System.EventHandler(this.BtnShowOrder_Click);
+            this.lblMode.AutoSize = true;
+            this.lblMode.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblMode.Location = new System.Drawing.Point(10, 348);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(88, 13);
+            this.lblMode.TabIndex = 4;
+            this.lblMode.Text = "Felhasználói mód";
             // 
             // MainMarketView
             // 
@@ -529,6 +541,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panelSidebar.ResumeLayout(false);
+            this.panelSidebar.PerformLayout();
             this.panelFilters.ResumeLayout(false);
             this.panelFilters.PerformLayout();
             this.panelDetails.ResumeLayout(false);
@@ -577,6 +590,7 @@
         private System.Windows.Forms.Button btnMakeOrder;
         private System.Windows.Forms.Button btnCancelOrder;
         private System.Windows.Forms.Button btnShowOrder;
+        private System.Windows.Forms.Label lblMode;
     }
 }
 

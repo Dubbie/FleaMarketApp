@@ -66,12 +66,18 @@ namespace FleaMarketApp
                 // Szerkesztés gomb eltüntetése
                 btnEdit.Enabled = false;
                 btnEdit.Visible = false;
+
+                // Mód
+                lblMode.Text = "Felhasználó";
             }
             else
             {
                 // Megveszem gomb eltünetése
                 btnMakeOrder.Enabled = false;
                 btnMakeOrder.Visible = false;
+
+                // Mód
+                lblMode.Text = "Adminisztrátor";
             }
         }
 

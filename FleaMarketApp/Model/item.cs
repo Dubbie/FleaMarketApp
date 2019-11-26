@@ -50,7 +50,7 @@ namespace FleaMarketApp
         public override string ToString()
         {
             string price_label = GetFormattedPrice();
-            return $"{item_id} - {item_name} ({price_label})";
+            return $"{item_name} ({price_label} | {status.status_name})";
         }
 
         public string GetFormattedPrice()
