@@ -65,6 +65,7 @@
             this.lblDetailItemStatus = new System.Windows.Forms.Label();
             this.lblDetailItemId = new System.Windows.Forms.Label();
             this.btnMakeOrder = new System.Windows.Forms.Button();
+            this.btnCancelOrder = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -375,6 +376,7 @@
             this.panelDetails.Controls.Add(this.lblDetailItemDescription);
             this.panelDetails.Controls.Add(this.lblDetailItemName);
             this.panelDetails.Controls.Add(this.panel1);
+            this.panelDetails.Controls.Add(this.btnCancelOrder);
             this.panelDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDetails.Location = new System.Drawing.Point(666, 60);
             this.panelDetails.Margin = new System.Windows.Forms.Padding(10);
@@ -406,7 +408,7 @@
             // btnEdit
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnEdit.Location = new System.Drawing.Point(0, 318);
+            this.btnEdit.Location = new System.Drawing.Point(0, 295);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(208, 23);
@@ -491,7 +493,7 @@
             // btnMakeOrder
             // 
             this.btnMakeOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnMakeOrder.Location = new System.Drawing.Point(0, 295);
+            this.btnMakeOrder.Location = new System.Drawing.Point(0, 272);
             this.btnMakeOrder.Margin = new System.Windows.Forms.Padding(0);
             this.btnMakeOrder.Name = "btnMakeOrder";
             this.btnMakeOrder.Size = new System.Drawing.Size(208, 23);
@@ -499,6 +501,19 @@
             this.btnMakeOrder.Text = "Megveszem";
             this.btnMakeOrder.UseVisualStyleBackColor = true;
             this.btnMakeOrder.Click += new System.EventHandler(this.BtnOrder_Click);
+            // 
+            // btnCancelOrder
+            // 
+            this.btnCancelOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCancelOrder.Location = new System.Drawing.Point(0, 318);
+            this.btnCancelOrder.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCancelOrder.Name = "btnCancelOrder";
+            this.btnCancelOrder.Size = new System.Drawing.Size(208, 23);
+            this.btnCancelOrder.TabIndex = 13;
+            this.btnCancelOrder.Text = "Megrendelés törlése";
+            this.btnCancelOrder.UseVisualStyleBackColor = true;
+            this.btnCancelOrder.Visible = false;
+            this.btnCancelOrder.Click += new System.EventHandler(this.BtnCancelOrder_Click);
             // 
             // MainMarketView
             // 
@@ -559,6 +574,7 @@
         private System.Windows.Forms.Label lblDetailCreatedAt;
         private System.Windows.Forms.Button btnItemOrders;
         private System.Windows.Forms.Button btnMakeOrder;
+        private System.Windows.Forms.Button btnCancelOrder;
     }
 }
 

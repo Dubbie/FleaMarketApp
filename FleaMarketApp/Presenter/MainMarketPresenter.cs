@@ -58,6 +58,37 @@ namespace FleaMarketApp.Presenter
             _View.BtnEditItemClicked += ShowEditItemView;
             _View.BtnItemOrdersClicked += ShowItemOrdersView;
             _View.BtnMakeOrderClicked += OrderItem;
+            _View.BtnCancelOrderClicked += CancelOrder;
+        }
+
+        private void CancelOrder(object sender, EventArgs e)
+        {
+            if (
+                MessageBox.Show(
+                    "Biztosan törölni szeretné a termékhez tartozó megrendelést? Ez a folyamat nem visszafordítható.",
+                    "Megrendelés törlése",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                ) == DialogResult.Yes)
+            {
+                using (var db = new FleaMarketContext())
+                {
+                    item foundItem = db.item.Find(_View.SelectedItem.item_id);
+                    item_order foundOrder = foundItem.item_order.First();
+
+                    // Töröljük a megrendelést
+                    db.item_order.Remove(foundOrder);
+
+                    // Átállítjuk a termék státuszát, módosítás dátumát frissítjük
+                    foundItem.status_id = 2;
+                    foundItem.modified_at = DateTime.Now;
+
+                    // Elmentjük
+                    db.SaveChanges();
+                }
+            }
+
+            _View.Form.Enabled = true;
         }
 
         private void OrderItem(object sender, EventArgs e)
