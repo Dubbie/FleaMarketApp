@@ -67,6 +67,7 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\ComboBoxItem.cs" />
     <Compile Include="Presenter\EditItemPresenter.cs" />
+    <Compile Include="Presenter\IncomePresenter.cs" />
     <Compile Include="Presenter\ItemOrdersPresenter.cs" />
     <Compile Include="Presenter\MainMarketPresenter.cs" />
     <Compile Include="Presenter\NewItemPresenter.cs" />
@@ -83,8 +84,15 @@
       <DependentUpon>EditItemView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IEditItemView.cs" />
+    <Compile Include="View\IIncomeView.cs" />
     <Compile Include="View\IItemOrdersView.cs" />
     <Compile Include="View\IMainMarketView.cs" />
+    <Compile Include="View\IncomeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\IncomeView.Designer.cs">
+      <DependentUpon>IncomeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\INewItemView.cs" />
     <Compile Include="View\INewOrderView.cs" />
     <Compile Include="View\IOfferItemView.cs" />
@@ -152,6 +160,9 @@
     </Compile>
     <EmbeddedResource Include="View\EditItemView.resx">
       <DependentUpon>EditItemView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\IncomeView.resx">
+      <DependentUpon>IncomeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ItemOrdersView.resx">
       <DependentUpon>ItemOrdersView.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace FleaMarketApp.View
 {
-    partial class OrderStatisticsView
+    partial class IncomeView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.splitStatisticsContainer = new System.Windows.Forms.SplitContainer();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.lblTo = new System.Windows.Forms.Label();
             this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.lblFrom = new System.Windows.Forms.Label();
-            this.chartOrders = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartIncome = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.splitStatisticsContainer)).BeginInit();
             this.splitStatisticsContainer.Panel1.SuspendLayout();
             this.splitStatisticsContainer.Panel2.SuspendLayout();
             this.splitStatisticsContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartOrders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartIncome)).BeginInit();
             this.SuspendLayout();
             // 
             // splitStatisticsContainer
@@ -64,11 +63,11 @@
             // 
             // splitStatisticsContainer.Panel2
             // 
-            this.splitStatisticsContainer.Panel2.Controls.Add(this.chartOrders);
+            this.splitStatisticsContainer.Panel2.Controls.Add(this.chartIncome);
             this.splitStatisticsContainer.Panel2.Padding = new System.Windows.Forms.Padding(10);
             this.splitStatisticsContainer.Size = new System.Drawing.Size(624, 441);
             this.splitStatisticsContainer.SplitterDistance = 200;
-            this.splitStatisticsContainer.TabIndex = 0;
+            this.splitStatisticsContainer.TabIndex = 1;
             // 
             // btnUpdate
             // 
@@ -119,40 +118,36 @@
             this.lblFrom.TabIndex = 0;
             this.lblFrom.Text = "Kezdve";
             // 
-            // chartOrders
+            // chartIncome
             // 
-            this.chartOrders.BackColor = System.Drawing.SystemColors.Control;
-            chartArea1.Name = "ChartArea1";
-            this.chartOrders.ChartAreas.Add(chartArea1);
-            this.chartOrders.Location = new System.Drawing.Point(14, 13);
-            this.chartOrders.Name = "chartOrders";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Name = "Orders";
-            this.chartOrders.Series.Add(series1);
-            this.chartOrders.Size = new System.Drawing.Size(393, 415);
-            this.chartOrders.TabIndex = 0;
-            this.chartOrders.Text = "Megrendelések kategóriánként";
-            title1.Name = "ChartTitle";
-            title1.Text = "Megrendelések kategóriánként";
-            this.chartOrders.Titles.Add(title1);
+            this.chartIncome.BackColor = System.Drawing.SystemColors.Control;
+            chartArea4.Name = "ChartArea1";
+            this.chartIncome.ChartAreas.Add(chartArea4);
+            this.chartIncome.Location = new System.Drawing.Point(14, 13);
+            this.chartIncome.Name = "chartIncome";
+            this.chartIncome.Size = new System.Drawing.Size(393, 415);
+            this.chartIncome.TabIndex = 0;
+            this.chartIncome.Text = "Bevétel alakulása";
+            title4.Name = "ChartTitle";
+            title4.Text = "Bevétel alakulása";
+            this.chartIncome.Titles.Add(title4);
             // 
-            // OrderStatisticsView
+            // IncomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 441);
             this.Controls.Add(this.splitStatisticsContainer);
-            this.Name = "OrderStatisticsView";
+            this.Name = "IncomeView";
             this.ShowIcon = false;
-            this.Text = "Megrendelési statisztika";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrderStatisticsView_FormClosed);
+            this.Text = "Bevétel alakulása";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IncomeView_FormClosed);
             this.splitStatisticsContainer.Panel1.ResumeLayout(false);
             this.splitStatisticsContainer.Panel1.PerformLayout();
             this.splitStatisticsContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitStatisticsContainer)).EndInit();
             this.splitStatisticsContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartOrders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartIncome)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -160,11 +155,11 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitStatisticsContainer;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DateTimePicker dateTo;
         private System.Windows.Forms.Label lblTo;
         private System.Windows.Forms.DateTimePicker dateFrom;
         private System.Windows.Forms.Label lblFrom;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartOrders;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartIncome;
     }
 }

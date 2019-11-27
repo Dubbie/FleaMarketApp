@@ -33,6 +33,7 @@ namespace FleaMarketApp.View
         List<category> Categories { set; }
         List<status> Statuses { set; }
 
+        // Események
         event EventHandler<EventArgs> ItemSelected;
         event EventHandler<EventArgs> FiltersChanged;
         event EventHandler<EventArgs> BtnNewItemClicked;
@@ -44,5 +45,6 @@ namespace FleaMarketApp.View
         event EventHandler<EventArgs> BtnOfferItemClicked;
         event EventHandler<EventArgs> BtnSellClicked;
         event EventHandler<EventArgs> BtnOrderStatisticsClicked;
+        event EventHandler<EventArgs> BtnShowIncomeClicked;
     }
 }

@@ -33,6 +33,7 @@
             this.lblList = new System.Windows.Forms.Label();
             this.lblFilter = new System.Windows.Forms.Label();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.btnShowIncome = new System.Windows.Forms.Button();
             this.btnOrderStatistics = new System.Windows.Forms.Button();
             this.lblMode = new System.Windows.Forms.Label();
             this.btnShowOrder = new System.Windows.Forms.Button();
@@ -70,11 +71,13 @@
             this.lblDetailItemId = new System.Windows.Forms.Label();
             this.btnCancelOrder = new System.Windows.Forms.Button();
             this.btnSell = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelFilters.SuspendLayout();
             this.panelDetails.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -145,6 +148,7 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.White;
+            this.panelSidebar.Controls.Add(this.btnShowIncome);
             this.panelSidebar.Controls.Add(this.btnOrderStatistics);
             this.panelSidebar.Controls.Add(this.lblMode);
             this.panelSidebar.Controls.Add(this.btnShowOrder);
@@ -158,6 +162,20 @@
             this.tableLayoutPanel1.SetRowSpan(this.panelSidebar, 3);
             this.panelSidebar.Size = new System.Drawing.Size(200, 411);
             this.panelSidebar.TabIndex = 1;
+            // 
+            // btnShowIncome
+            // 
+            this.btnShowIncome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnShowIncome.Enabled = false;
+            this.btnShowIncome.Location = new System.Drawing.Point(10, 130);
+            this.btnShowIncome.Margin = new System.Windows.Forms.Padding(10);
+            this.btnShowIncome.Name = "btnShowIncome";
+            this.btnShowIncome.Size = new System.Drawing.Size(180, 40);
+            this.btnShowIncome.TabIndex = 6;
+            this.btnShowIncome.Text = "Bevétel alakulása";
+            this.btnShowIncome.UseVisualStyleBackColor = true;
+            this.btnShowIncome.Visible = false;
+            this.btnShowIncome.Click += new System.EventHandler(this.btnShowIncome_Click);
             // 
             // btnOrderStatistics
             // 
@@ -235,18 +253,14 @@
             // 
             // panelFilters
             // 
-            this.panelFilters.Controls.Add(this.lblPriceMax);
-            this.panelFilters.Controls.Add(this.lblPriceMin);
-            this.panelFilters.Controls.Add(this.lblPrice);
-            this.panelFilters.Controls.Add(this.txtFilterPriceMax);
-            this.panelFilters.Controls.Add(this.txtFilterPriceMin);
+            this.panelFilters.Controls.Add(this.btnFilter);
             this.panelFilters.Controls.Add(this.comboStatus);
             this.panelFilters.Controls.Add(this.lblStatus);
             this.panelFilters.Controls.Add(this.comboCategory);
             this.panelFilters.Controls.Add(this.lblCategory);
+            this.panelFilters.Controls.Add(this.panel2);
             this.panelFilters.Controls.Add(this.txtFilterItemName);
             this.panelFilters.Controls.Add(this.lblFilterItemName);
-            this.panelFilters.Controls.Add(this.btnFilter);
             this.panelFilters.Controls.Add(this.txtFilterItemId);
             this.panelFilters.Controls.Add(this.lblFilterItemId);
             this.panelFilters.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -261,7 +275,7 @@
             this.lblPriceMax.AutoSize = true;
             this.lblPriceMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblPriceMax.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPriceMax.Location = new System.Drawing.Point(105, 93);
+            this.lblPriceMax.Location = new System.Drawing.Point(108, 23);
             this.lblPriceMax.Name = "lblPriceMax";
             this.lblPriceMax.Size = new System.Drawing.Size(34, 13);
             this.lblPriceMax.TabIndex = 14;
@@ -272,7 +286,7 @@
             this.lblPriceMin.AutoSize = true;
             this.lblPriceMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblPriceMin.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPriceMin.Location = new System.Drawing.Point(2, 93);
+            this.lblPriceMin.Location = new System.Drawing.Point(-1, 23);
             this.lblPriceMin.Name = "lblPriceMin";
             this.lblPriceMin.Size = new System.Drawing.Size(31, 13);
             this.lblPriceMin.TabIndex = 13;
@@ -282,7 +296,7 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPrice.Location = new System.Drawing.Point(2, 80);
+            this.lblPrice.Location = new System.Drawing.Point(0, 10);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(19, 13);
             this.lblPrice.TabIndex = 12;
@@ -290,70 +304,79 @@
             // 
             // txtFilterPriceMax
             // 
-            this.txtFilterPriceMax.Location = new System.Drawing.Point(108, 109);
+            this.txtFilterPriceMax.Location = new System.Drawing.Point(108, 39);
             this.txtFilterPriceMax.Name = "txtFilterPriceMax";
-            this.txtFilterPriceMax.Size = new System.Drawing.Size(95, 20);
+            this.txtFilterPriceMax.Size = new System.Drawing.Size(100, 20);
             this.txtFilterPriceMax.TabIndex = 7;
             // 
             // txtFilterPriceMin
             // 
-            this.txtFilterPriceMin.Location = new System.Drawing.Point(3, 109);
+            this.txtFilterPriceMin.Location = new System.Drawing.Point(0, 39);
             this.txtFilterPriceMin.Name = "txtFilterPriceMin";
-            this.txtFilterPriceMin.Size = new System.Drawing.Size(95, 20);
+            this.txtFilterPriceMin.Size = new System.Drawing.Size(100, 20);
             this.txtFilterPriceMin.TabIndex = 6;
             // 
             // comboStatus
             // 
+            this.comboStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboStatus.FormattingEnabled = true;
-            this.comboStatus.Location = new System.Drawing.Point(3, 188);
+            this.comboStatus.Location = new System.Drawing.Point(0, 208);
             this.comboStatus.Name = "comboStatus";
-            this.comboStatus.Size = new System.Drawing.Size(200, 21);
+            this.comboStatus.Size = new System.Drawing.Size(208, 21);
             this.comboStatus.TabIndex = 9;
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
+            this.lblStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblStatus.Location = new System.Drawing.Point(2, 173);
+            this.lblStatus.Location = new System.Drawing.Point(0, 183);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(49, 13);
+            this.lblStatus.Padding = new System.Windows.Forms.Padding(0, 10, 0, 2);
+            this.lblStatus.Size = new System.Drawing.Size(49, 25);
             this.lblStatus.TabIndex = 8;
             this.lblStatus.Text = "Státusz";
             // 
             // comboCategory
             // 
+            this.comboCategory.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCategory.FormattingEnabled = true;
-            this.comboCategory.Location = new System.Drawing.Point(3, 149);
+            this.comboCategory.Location = new System.Drawing.Point(0, 162);
             this.comboCategory.Name = "comboCategory";
-            this.comboCategory.Size = new System.Drawing.Size(200, 21);
+            this.comboCategory.Size = new System.Drawing.Size(208, 21);
             this.comboCategory.TabIndex = 8;
             // 
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
+            this.lblCategory.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblCategory.Location = new System.Drawing.Point(2, 132);
+            this.lblCategory.Location = new System.Drawing.Point(0, 137);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(61, 13);
+            this.lblCategory.Padding = new System.Windows.Forms.Padding(0, 10, 0, 2);
+            this.lblCategory.Size = new System.Drawing.Size(61, 25);
             this.lblCategory.TabIndex = 6;
             this.lblCategory.Text = "Kategória";
             // 
             // txtFilterItemName
             // 
-            this.txtFilterItemName.Location = new System.Drawing.Point(3, 58);
+            this.txtFilterItemName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtFilterItemName.Location = new System.Drawing.Point(0, 58);
             this.txtFilterItemName.Name = "txtFilterItemName";
-            this.txtFilterItemName.Size = new System.Drawing.Size(201, 20);
+            this.txtFilterItemName.Size = new System.Drawing.Size(208, 20);
             this.txtFilterItemName.TabIndex = 5;
             // 
             // lblFilterItemName
             // 
             this.lblFilterItemName.AutoSize = true;
+            this.lblFilterItemName.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblFilterItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblFilterItemName.Location = new System.Drawing.Point(3, 42);
+            this.lblFilterItemName.Location = new System.Drawing.Point(0, 33);
             this.lblFilterItemName.Name = "lblFilterItemName";
-            this.lblFilterItemName.Size = new System.Drawing.Size(78, 13);
+            this.lblFilterItemName.Padding = new System.Windows.Forms.Padding(0, 10, 0, 2);
+            this.lblFilterItemName.Size = new System.Drawing.Size(78, 25);
             this.lblFilterItemName.TabIndex = 4;
             this.lblFilterItemName.Text = "Megnevezés";
             // 
@@ -370,16 +393,18 @@
             // 
             // txtFilterItemId
             // 
-            this.txtFilterItemId.Location = new System.Drawing.Point(3, 19);
+            this.txtFilterItemId.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtFilterItemId.Location = new System.Drawing.Point(0, 13);
             this.txtFilterItemId.Name = "txtFilterItemId";
-            this.txtFilterItemId.Size = new System.Drawing.Size(201, 20);
+            this.txtFilterItemId.Size = new System.Drawing.Size(208, 20);
             this.txtFilterItemId.TabIndex = 4;
             // 
             // lblFilterItemId
             // 
             this.lblFilterItemId.AutoSize = true;
+            this.lblFilterItemId.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblFilterItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblFilterItemId.Location = new System.Drawing.Point(3, 3);
+            this.lblFilterItemId.Location = new System.Drawing.Point(0, 0);
             this.lblFilterItemId.Name = "lblFilterItemId";
             this.lblFilterItemId.Size = new System.Drawing.Size(64, 13);
             this.lblFilterItemId.TabIndex = 0;
@@ -576,6 +601,20 @@
             this.btnSell.Visible = false;
             this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblPriceMax);
+            this.panel2.Controls.Add(this.lblPrice);
+            this.panel2.Controls.Add(this.txtFilterPriceMin);
+            this.panel2.Controls.Add(this.lblPriceMin);
+            this.panel2.Controls.Add(this.txtFilterPriceMax);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 78);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(208, 59);
+            this.panel2.TabIndex = 15;
+            // 
             // MainMarketView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -594,6 +633,8 @@
             this.panelFilters.PerformLayout();
             this.panelDetails.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -642,6 +683,8 @@
         private System.Windows.Forms.Button btnOfferItem;
         private System.Windows.Forms.Button btnSell;
         private System.Windows.Forms.Button btnOrderStatistics;
+        private System.Windows.Forms.Button btnShowIncome;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
