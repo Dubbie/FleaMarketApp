@@ -24,6 +24,34 @@ namespace FleaMarketApp.Presenter
 
             _View.ItemOrders = _Orders;
             _View.UpdateOrders += UpdateItemOrders;
+            _View.OrderSelected += ShowOrderDetailsView;
+        }
+
+        private void ShowOrderDetailsView(object sender, EventArgs e)
+        {
+            using (var db = new FleaMarketContext())
+            {
+                item_order foundOrder = db.item_order.Find(_View.ItemOrderId);
+
+                OrderDetailsView details = new OrderDetailsView
+                {
+                    ItemName = foundOrder.item.item_name,
+                    ItemPrice = foundOrder.item.GetFormattedPrice(),
+                    OrderedAt = foundOrder.ordered_at,
+                    OrdererAddress = foundOrder.orderer_address,
+                    OrdererEmail = foundOrder.orderer_email,
+                    OrdererName = foundOrder.orderer_name,
+                    OrdererPhone = foundOrder.orderer_phone,
+                    StatusId = foundOrder.item.status_id,
+
+                    OrderItemId = foundOrder.item_id,
+                    OrderId = foundOrder.order_id,
+                    Owner = _View.Form,
+                };
+
+                _View.Form.Enabled = false;
+                details.Show();
+            }
         }
 
         private void UpdateItemOrders(object sender, EventArgs args)
