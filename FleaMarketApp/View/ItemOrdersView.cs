@@ -13,7 +13,7 @@ namespace FleaMarketApp.View
 {
     public partial class ItemOrdersView : Form, IItemOrdersView
     {
-        public ItemOrdersPresenter presenter;
+        private ItemOrdersPresenter presenter;
 
         public event EventHandler<EventArgs> UpdateOrders;
 

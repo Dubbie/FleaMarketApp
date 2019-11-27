@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FleaMarketApp.Presenter
 {
-    public class OrderSearchPresenter
+    class OrderSearchPresenter
     {
         public IOrderSearchView _View;
 

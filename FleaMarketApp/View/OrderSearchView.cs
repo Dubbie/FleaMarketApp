@@ -13,7 +13,7 @@ namespace FleaMarketApp.View
 {
     public partial class OrderSearchView : Form, IOrderSearchView
     {
-        public OrderSearchPresenter presenter;
+        private OrderSearchPresenter presenter;
 
         public OrderSearchView()
         {

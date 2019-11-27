@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FleaMarketApp.Presenter
 {
-    public class OfferItemPresenter
+    class OfferItemPresenter
     {
         private readonly IOfferItemView _View;
 

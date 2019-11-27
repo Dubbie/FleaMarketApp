@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FleaMarketApp.View
 {
-    public interface IItemOrdersView
+    interface IItemOrdersView
     {
         List<item_order> ItemOrders { set; }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FleaMarketApp.Presenter
 {
-    public class OrderDetailsPresenter
+    class OrderDetailsPresenter
     {
         private readonly IOrderDetailsView _View;
         private readonly bool _Admin;

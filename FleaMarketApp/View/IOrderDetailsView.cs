@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace FleaMarketApp.View
 {
-    public interface IOrderDetailsView
+    interface IOrderDetailsView
     {
         decimal OrderId { get; set; }
         string ItemName { set; }
