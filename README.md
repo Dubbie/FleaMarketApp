@@ -49,4 +49,4 @@ When you order an item, you will have to add your personal data:
 
 After successfully ordering, you will get an **Order ID**.
 This is important because you can check your order details by this ID.
-If you don't want an item, you can cancel it after the next business day of your order.
+If you don't want an item, you can cancel it within the next business day of your order.
