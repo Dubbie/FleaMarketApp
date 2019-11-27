@@ -64,6 +64,19 @@ namespace FleaMarketApp.Presenter
             _View.BtnShowOrderClicked += ShowOrder;
             _View.BtnOfferItemClicked += ShowOfferView;
             _View.BtnSellClicked += SellItem;
+            _View.BtnOrderStatisticsClicked += ShowOrderStatisticsView;
+        }
+
+        private void ShowOrderStatisticsView(object sender, EventArgs e)
+        {
+            _View.Form.Enabled = false;
+
+            // Létrehozzuk a view-t
+            OrderStatisticsView view = new OrderStatisticsView
+            {
+                Owner = _View.Form
+            };
+            view.Show();
         }
 
         private void SellItem(object sender, EventArgs e)

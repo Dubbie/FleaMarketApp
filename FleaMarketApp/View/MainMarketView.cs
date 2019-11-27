@@ -76,6 +76,14 @@ namespace FleaMarketApp
                 btnMakeOrder.Enabled = false;
                 btnMakeOrder.Visible = false;
 
+                // Megrendelés kereső eltüntetése
+                btnShowOrder.Enabled = false;
+                btnShowOrder.Visible = false;
+
+                // Statisztikai gombok
+                btnOrderStatistics.Enabled = true;
+                btnOrderStatistics.Visible = true;
+
                 // Mód
                 lblMode.Text = "Adminisztrátor";
             }
@@ -170,6 +178,7 @@ namespace FleaMarketApp
         public event EventHandler<EventArgs> BtnShowOrderClicked;
         public event EventHandler<EventArgs> BtnOfferItemClicked;
         public event EventHandler<EventArgs> BtnSellClicked;
+        public event EventHandler<EventArgs> BtnOrderStatisticsClicked;
 
         // Szűrés
         public string FilterItemName => txtFilterItemName.Text;
@@ -359,6 +368,18 @@ namespace FleaMarketApp
         private void btnSell_Click(object sender, EventArgs e)
         {
             BtnSellClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnOrderStatistics_Click(object sender, EventArgs e)
+        {
+            BtnOrderStatisticsClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnMakeOrder_Click(object sender, EventArgs e)
+        {
+            Enabled = false;
+
+            BtnMakeOrderClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

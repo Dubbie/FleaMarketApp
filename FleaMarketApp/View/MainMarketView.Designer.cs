@@ -33,6 +33,7 @@
             this.lblList = new System.Windows.Forms.Label();
             this.lblFilter = new System.Windows.Forms.Label();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.btnOrderStatistics = new System.Windows.Forms.Button();
             this.lblMode = new System.Windows.Forms.Label();
             this.btnShowOrder = new System.Windows.Forms.Button();
             this.btnItemOrders = new System.Windows.Forms.Button();
@@ -144,6 +145,7 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.White;
+            this.panelSidebar.Controls.Add(this.btnOrderStatistics);
             this.panelSidebar.Controls.Add(this.lblMode);
             this.panelSidebar.Controls.Add(this.btnShowOrder);
             this.panelSidebar.Controls.Add(this.btnItemOrders);
@@ -156,6 +158,20 @@
             this.tableLayoutPanel1.SetRowSpan(this.panelSidebar, 3);
             this.panelSidebar.Size = new System.Drawing.Size(200, 411);
             this.panelSidebar.TabIndex = 1;
+            // 
+            // btnOrderStatistics
+            // 
+            this.btnOrderStatistics.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOrderStatistics.Enabled = false;
+            this.btnOrderStatistics.Location = new System.Drawing.Point(10, 90);
+            this.btnOrderStatistics.Margin = new System.Windows.Forms.Padding(10);
+            this.btnOrderStatistics.Name = "btnOrderStatistics";
+            this.btnOrderStatistics.Size = new System.Drawing.Size(180, 40);
+            this.btnOrderStatistics.TabIndex = 5;
+            this.btnOrderStatistics.Text = "Megrendelési statisztika";
+            this.btnOrderStatistics.UseVisualStyleBackColor = true;
+            this.btnOrderStatistics.Visible = false;
+            this.btnOrderStatistics.Click += new System.EventHandler(this.btnOrderStatistics_Click);
             // 
             // lblMode
             // 
@@ -426,7 +442,7 @@
             this.btnMakeOrder.TabIndex = 12;
             this.btnMakeOrder.Text = "Megrendelem";
             this.btnMakeOrder.UseVisualStyleBackColor = true;
-            this.btnMakeOrder.Click += new System.EventHandler(this.BtnOrder_Click);
+            this.btnMakeOrder.Click += new System.EventHandler(this.btnMakeOrder_Click);
             // 
             // lblDetailModifiedAt
             // 
@@ -625,6 +641,7 @@
         private System.Windows.Forms.Label lblMode;
         private System.Windows.Forms.Button btnOfferItem;
         private System.Windows.Forms.Button btnSell;
+        private System.Windows.Forms.Button btnOrderStatistics;
     }
 }
 
