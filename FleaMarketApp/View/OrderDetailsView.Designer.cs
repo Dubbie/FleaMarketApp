@@ -41,6 +41,7 @@
             this.lblOrdererName = new System.Windows.Forms.Label();
             this.lblOrderDatePrefix = new System.Windows.Forms.Label();
             this.lblItemPrice = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitDetailsMain)).BeginInit();
             this.splitDetailsMain.Panel1.SuspendLayout();
             this.splitDetailsMain.Panel2.SuspendLayout();
@@ -94,6 +95,7 @@
             // 
             // splitDetailsMain.Panel2
             // 
+            this.splitDetailsMain.Panel2.Controls.Add(this.lblStatus);
             this.splitDetailsMain.Panel2.Controls.Add(this.lblOrderer);
             this.splitDetailsMain.Panel2.Controls.Add(this.lblOrdererEmail);
             this.splitDetailsMain.Panel2.Controls.Add(this.lblOrdererPhone);
@@ -202,6 +204,17 @@
             this.lblItemPrice.TabIndex = 3;
             this.lblItemPrice.Text = "Megrendelt tárgy ára";
             // 
+            // lblStatus
+            // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblStatus.Location = new System.Drawing.Point(246, 186);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(215, 34);
+            this.lblStatus.TabIndex = 11;
+            this.lblStatus.Text = "Státusz állapot";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // OrderDetailsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,5 +249,6 @@
         private System.Windows.Forms.Label lblOrdererPhone;
         private System.Windows.Forms.Label lblOrdererAddress;
         private System.Windows.Forms.Label lblOrdererName;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

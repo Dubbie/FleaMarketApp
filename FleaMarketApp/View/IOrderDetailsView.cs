@@ -21,6 +21,7 @@ namespace FleaMarketApp.View
         string OrdererPhone { set; }
 
         decimal StatusId { get; set; }
+        string StatusName { set; }
 
         Form Form { get; }
         bool Admin { get; set; }

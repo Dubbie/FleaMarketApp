@@ -43,6 +43,7 @@ namespace FleaMarketApp.Presenter
                     OrdererName = foundOrder.orderer_name,
                     OrdererPhone = foundOrder.orderer_phone,
                     StatusId = foundOrder.item.status_id,
+                    StatusName = foundOrder.item.status.status_name,
 
                     OrderItemId = foundOrder.item_id,
                     OrderId = foundOrder.order_id,

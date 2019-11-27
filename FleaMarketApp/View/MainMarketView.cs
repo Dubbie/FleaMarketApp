@@ -261,6 +261,7 @@ namespace FleaMarketApp
         private void btnFilter_Click(object sender, EventArgs e)
         {
             FiltersChanged?.Invoke(this, EventArgs.Empty);
+            HideDetails();
         }
 
         private void ShowDetails()
@@ -322,13 +323,10 @@ namespace FleaMarketApp
             if (Enabled)
             {
                 FiltersChanged?.Invoke(this, EventArgs.Empty);
-
+                HideDetails();
                 if (lastSelectedItemId != null && lastSelectedItemId < listItems.Items.Count)
                 {
                     listItems.SelectedIndex = (int)lastSelectedItemId;
-                } else
-                {
-                    HideDetails();
                 }
             }
         }

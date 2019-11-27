@@ -74,7 +74,19 @@ INSERT INTO item (item_id, item_name, item_description, item_price, status_id, c
 		(10, 'Razer Blackwidow Ultimate', '2012-es példány, egyike a korai mechanikus billentyűzetek közül', NULL, 1, 2, '2019-10-26 12:00:00', '2019-10-26 12:00:00'),
 		(11, 'Logitech G920', 'Professzionális gamer kormány, 900 fokot fordul, 3 pedálos, H váltóval', '65000.00', 4, 2, '2019-10-28 00:00:00', '2019-11-05 00:00:00'),
 		(12, 'Dohányzóasztal', 'Kicsit kopottas, fehér színű', '2000.00', 2, 6, '2019-10-29 00:00:00', '2019-10-29 10:00:00'),
-		(13, 'Ezüst nyaklánc', 'A nyakláncon lóg egy ezüstözött B betű', '10000.00', 4, 6, '2019-10-30 00:00:00', '2019-10-30 08:00:00');
+		(13, 'Ezüst nyaklánc', 'A nyakláncon lóg egy ezüstözött B betű', '10000.00', 4, 6, '2019-10-30 00:00:00', '2019-10-30 08:00:00'),
+        (14, 'Milka csoki válogatás', '6 fajta élvezet', '8000.00', 2, 7, '2019-11-10 08:00:00', '2019-11-10 08:00:00'),
+        (15, 'Úszógumi', 'Baba méret', '500.00', 3, 4, '2019-10-28 10:00:00', '2019-10-28 10:00:00'),
+        (16, 'Érzéki gyertya', 'Érezd', '6900.00', 2, 4, '2019-10-30 10:00:00', '2019-10-30 10:00:00'),
+        (17, 'Fényfüzér', 'Erotikus hangulat', '1500.00', 2, 2, '2019-11-18 10:00:00', '2019-11-18 10:00:00'),
+        (18, 'Tesla Original', 'Nem trabant', NULL, 1, 2, '2019-10-28 10:00:00', '2019-10-28 10:00:00'),
+        (19, 'Felfújató kaktusz', 'Huppanj rá!', '1500.00', 3, 4, '2019-11-05 10:00:00', '2019-11-06 10:00:00'),
+        (20, 'Rezgő kulcstartó', 'Tuti megtalálod.', NULL, 1, 2, '2019-11-15 10:00:00', '2019-11-15 10:00:00'),
+        (21, 'Csengőhang', 'Shakira, Beyoncé, Eminem, Spice Girls, te döntesz!', '100.00', 2, 7, '2019-10-30 10:00:00', '2019-10-30 10:00:00'),
+        (22, 'Fa szék', '2 darabos, jó állapotban, korhű.', '7000.00', 4, 6, '2019-11-13 10:00:00', '2019-11-18 10:00:00'),
+        (23, 'Garnitúra', 'Életed legszebb túrája', '120000.00', 2, 6, '2019-11-02 10:00:00', '2019-11-02 10:00:00'),
+        (24, 'Fa kanál', 'Égjen a konyha!', '500.00', 3, 7, '2019-10-09 10:00:00', '2019-11-10 10:00:00'),
+        (25, 'Hangszóró', 'Emmádöfi!', '25000.00', 2, 2, '2019-11-15 08:00:00', '2019-11-15 08:00:00');
 SET IDENTITY_INSERT item OFF
 
 SET IDENTITY_INSERT item_order ON
@@ -84,6 +96,10 @@ INSERT INTO item_order (order_id, item_id, orderer_name, orderer_address, ordere
 (3, 7, 'Mihó Dániel', '2440 Százhalombatta, Pannónia u. 11 2./9.', 'miho.daniel@mdy.hu', '06308266701', '2019-11-22 17:30:00'),
 (4, 9, 'Mihó Dániel', '2440 Százhalombatta, Pannónia u. 11 2./9.', 'miho.daniel@mdy.hu', '06308266701', '2019-10-25 17:30:00'),
 (5, 11, 'Mihó Dániel', '2440 Százhalombatta, Pannónia u. 11 2./9.', 'miho.daniel@mdy.hu', '06308266701', '2019-11-05 00:00:00'),
-(6, 13, 'Mihó Dániel', '2440 Százhalombatta, Pannónia u. 11 2./9.', 'miho.daniel@mdy.hu', '06308266701', '2019-10-30 08:00:00');
+(6, 13, 'Mihó Dániel', '2440 Százhalombatta, Pannónia u. 11 2./9.', 'miho.daniel@mdy.hu', '06308266701', '2019-10-30 08:00:00'),
+(7, 15, 'Moha Med', '2030 Érd, Sás utca 10', 'moha.med@gmail.com', '062098277612', '2019-10-28 10:00:00'),
+(8, 19, 'Kaba Réka', '2030 Érd, Sás utca 10', 'kaba.reka@gmail.com', '062098277612', '2019-11-06 10:00:00'),
+(9, 22, 'Kiss Tünde', '2030 Érd, Mária utca 2', 'kiss.tunde@gmail.com', '063048915762', '2019-11-18 10:00:00'),
+(10, 24, 'Piro Kati', '2030 Érd, Mária utca 2', 'piro.kati@gmail.com', '063048915762', '2019-11-10 10:00:00');
 GO
 SET IDENTITY_INSERT item_order OFF

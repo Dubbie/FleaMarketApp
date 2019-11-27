@@ -65,6 +65,7 @@ namespace FleaMarketApp.View
         public Form Form { get => this; }
         public bool Admin { get; set; }
         public decimal StatusId { get; set; }
+        public string StatusName { set => lblStatus.Text = value; }
 
         public decimal OrderItemId { get; set; }
 
