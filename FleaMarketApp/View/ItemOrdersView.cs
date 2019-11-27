@@ -39,7 +39,6 @@ namespace FleaMarketApp.View
                     gridItemOrders.Rows[rowIndex].Cells["Orderer"].Value = order.orderer_name;
                     gridItemOrders.Rows[rowIndex].Cells["Sold"].Value = order.item.status_id == 4 ? "Igen" : "Nem";
                 }
-                gridItemOrders.Select();
             }
         }
 
@@ -58,11 +57,14 @@ namespace FleaMarketApp.View
             UpdateOrders?.Invoke(this, EventArgs.Empty);
         }
 
-        private void gridItemOrders_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void GridItemOrders_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ItemOrderId = decimal.Parse(gridItemOrders.SelectedRows[0].Cells["OrderId"].Value.ToString());
+            if (e.RowIndex != -1)
+            {
+                ItemOrderId = decimal.Parse(gridItemOrders.SelectedRows[0].Cells["OrderId"].Value.ToString());
 
-            OrderSelected?.Invoke(this, EventArgs.Empty);
+                OrderSelected?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }

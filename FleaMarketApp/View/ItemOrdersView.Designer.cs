@@ -70,7 +70,8 @@
             this.gridItemOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridItemOrders.Size = new System.Drawing.Size(552, 321);
             this.gridItemOrders.TabIndex = 2;
-            this.gridItemOrders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridItemOrders_CellClick);
+            this.gridItemOrders.TabStop = false;
+            this.gridItemOrders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridItemOrders_CellClick);
             // 
             // OrderId
             // 
